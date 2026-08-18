@@ -1,0 +1,64 @@
+:root {
+    --primary: #0D5CBD;
+    --primary-dark: #0752A8;
+    --primary-light: #EAF4FF;
+    --background: #F5FAFF;
+    --white: #FFFFFF;
+    --text: #1F2937;
+    --muted: #6B7280;
+    --border: #DCEAF7;
+    --success: #198754;
+    --warning: #F59E0B;
+    --danger: #DC3545;
+    --purple: #7C3AED;
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+}
+
+.sidebar {
+    background: var(--primary);
+}
+
+.sidebar-menu a.active {
+    background: #B9DDFF;
+    color: var(--primary);
+}
+
+.page-title,
+.section-title {
+    color: var(--primary);
+}
+
+.btn-add {
+    background: var(--primary);
+    color: white;
+    border: none;
+}
+
+.btn-add:hover {
+    background: var(--primary-dark);
+    color: white;
+}
+
+.modal-header {
+    background: var(--primary);
+    color: white;
+}
+
+.table thead th {
+    background: var(--primary);
+    color: white;
+}
+
+.card,
+.summary-card,
+.section-card,
+.main-card,
+.queue-section,
+.followup-card {
+    background: var(--white);
+    border-color: var(--border);
+}

@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Basic HTML Code Snippets</title>
+
+    <!-- Prism CSS -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+
+   <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+
+</head>
+<style>
+    * {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    background-color: #f4f6f9;
+
+    color: #333;
+}
+
+
+/* ================= HEADER ================= */
+
+.main-header {
+    background-color: #1e293b;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 40px 20px;
+}
+
+
+.main-header h1 {
+    margin: 0 0 10px;
+
+    font-size: 36px;
+}
+
+
+.main-header p {
+    margin: 0;
+
+    font-size: 17px;
+}
+
+
+/* ================= CONTAINER ================= */
+
+.container {
+    width: 90%;
+
+    max-width: 1100px;
+
+    margin: 30px auto;
+}
+
+
+/* ================= INTRO ================= */
+
+.intro {
+    background-color: white;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+
+    border-radius: 10px;
+
+    border-left: 5px solid #2563eb;
+}
+
+
+/* ================= CONCEPT ================= */
+
+.concept {
+    background-color: white;
+
+    padding: 25px;
+
+    margin-bottom: 30px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+
+.concept h2 {
+    margin-top: 0;
+
+    color: #1e293b;
+}
+
+
+.concept p {
+    line-height: 1.6;
+}
+
+
+/* ================= CODE TITLE ================= */
+
+.code-title {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background-color: #111827;
+
+    color: white;
+
+    padding: 10px 15px;
+
+    margin-top: 20px;
+
+    border-radius: 6px 6px 0 0;
+}
+
+
+.code-title span {
+    font-weight: bold;
+}
+
+
+/* ================= COPY BUTTON ================= */
+
+.copy-btn {
+    background-color: #2563eb;
+
+    color: white;
+
+    border: none;
+
+    padding: 7px 14px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+
+.copy-btn:hover {
+    background-color: #1d4ed8;
+}
+
+
+/* ================= CODE ================= */
+
+pre {
+    margin: 0 !important;
+
+    border-radius: 0 0 6px 6px;
+
+    overflow-x: auto;
+}
+
+
+pre code {
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* ================= OUTPUT ================= */
+
+.output-box {
+    margin-top: 20px;
+
+    padding: 20px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    background-color: #fafafa;
+}
+
+
+.output-box h3 {
+    margin-top: 0;
+
+    color: #374151;
+}
+
+
+.output-box img {
+    max-width: 200px;
+
+    border-radius: 5px;
+}
+
+
+.output-box button {
+    background-color: #2563eb;
+
+    color: white;
+
+    border: none;
+
+    padding: 10px 18px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+
+/* ================= VIEW MORE ================= */
+
+.view-btn {
+    margin-top: 20px;
+
+    padding: 10px 18px;
+
+    background-color: white;
+
+    color: #2563eb;
+
+    border: 1px solid #2563eb;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+
+.view-btn:hover {
+    background-color: #2563eb;
+
+    color: white;
+}
+
+
+/* ================= MORE EXAMPLES ================= */
+
+.more-examples {
+    display: none;
+
+    margin-top: 20px;
+
+    padding: 20px;
+
+    background-color: #f8fafc;
+
+    border-radius: 8px;
+
+    border: 1px solid #e2e8f0;
+}
+
+
+.more-examples h3 {
+    color: #334155;
+
+    margin-top: 15px;
+}
+
+
+.more-examples pre {
+    margin-bottom: 20px !important;
+}
+
+
+/* ================= TABLE ================= */
+
+.output-box table {
+    border-collapse: collapse;
+}
+
+
+.output-box th,
+.output-box td {
+    padding: 10px 15px;
+
+    border: 1px solid #333;
+}
+
+
+.output-box th {
+    background-color: #1e293b;
+
+    color: white;
+}
+
+
+/* ================= FORM ================= */
+
+.output-box input {
+    padding: 9px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 5px;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    background-color: #1e293b;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 25px;
+
+    margin-top: 40px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+    .container {
+        width: 95%;
+    }
+
+
+    .main-header h1 {
+        font-size: 28px;
+    }
+
+
+    .concept {
+        padding: 18px;
+    }
+
+
+    .code-title {
+        flex-direction: row;
+    }
+
+
+    pre code {
+        font-size: 13px;
+    }
+
+}
+</style>
+<body>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="main-header">
+
+        <h1>Basic HTML Code Snippets</h1>
+
+        <p>
+            Learn HTML concepts with simple code examples
+        </p>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="container">
+
+
+        <!-- ================= INTRODUCTION ================= -->
+
+        <section class="intro">
+
+            <h2>HTML Introduction</h2>
+
+            <p>
+                HTML stands for HyperText Markup Language.
+                It is used to create the structure of web pages.
+            </p>
+
+        </section>
+
+
+
+        <!-- ================= CONCEPT 1 ================= -->
+
+        <section class="concept">
+
+            <div class="concept-header">
+
+                <div>
+
+                    <h2>1. HTML Heading</h2>
+
+                    <p>
+                        HTML provides six levels of headings
+                        from h1 to h6.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- CODE -->
+
+            <div class="code-title">
+
+                <span>HTML Code</span>
+
+                <button
+                    class="copy-btn"
+                    onclick="copyCode(this)">
+                    Copy Code
+                </button>
+
+            </div>
+
+
+            <pre><code class="language-html">
+&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;h2&gt;Heading 2&lt;/h2&gt;
+&lt;h3&gt;Heading 3&lt;/h3&gt;
+&lt;h4&gt;Heading 4&lt;/h4&gt;
+&lt;h5&gt;Heading 5&lt;/h5&gt;
+&lt;h6&gt;Heading 6&lt;/h6&gt;
+            </code></pre>
+
+
+            <!-- OUTPUT -->
+
+            <div class="output-box">
+
+                <h3>Output</h3>
+
+                <h1>Heading 1</h1>
+                <h2>Heading 2</h2>
+                <h3>Heading 3</h3>
+                <h4>Heading 4</h4>
+                <h5>Heading 5</h5>
+                <h6>Heading 6</h6>
+
+            </div>
+
+
+            <!-- VIEW MORE -->
+
+            <button
+                class="view-btn"
+                onclick="toggleExamples(this)">
+
+                View More Examples
+
+            </button>
+
+
+            <!-- COLLAPSE -->
+
+            <div class="more-examples">
+
+                <h3>Example 1</h3>
+
+                <pre><code class="language-html">
+&lt;h1&gt;Welcome to My Website&lt;/h1&gt;
+                </code></pre>
+
+
+                <h3>Example 2</h3>
+
+                <pre><code class="language-html">
+&lt;h2&gt;About Us&lt;/h2&gt;
+                </code></pre>
+
+
+                <h3>Example 3</h3>
+
+                <pre><code class="language-html">
+&lt;h3&gt;Our Services&lt;/h3&gt;
+                </code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= CONCEPT 2 ================= -->
+
+        <section class="concept">
+
+            <h2>2. HTML Paragraph</h2>
+
+            <p>
+                The paragraph tag is used to display text
+                in paragraph format.
+            </p>
+
+
+            <div class="code-title">
+
+                <span>HTML Code</span>
+
+                <button
+                    class="copy-btn"
+                    onclick="copyCode(this)">
+                    Copy Code
+                </button>
+
+            </div>
+
+
+            <pre><code class="language-html">
+&lt;p&gt;
+    This is my first HTML paragraph.
+&lt;/p&gt;
+            </code></pre>
+
+
+            <div class="output-box">
+
+                <h3>Output</h3>
+
+                <p>
+                    This is my first HTML paragraph.
+                </p>
+
+            </div>
+
+
+            <button
+                class="view-btn"
+                onclick="toggleExamples(this)">
+
+                View More Examples
+
+            </button>
+
+
+            <div class="more-examples">
+
+                <h3>Example 1</h3>
+
+                <pre><code class="language-html">
+&lt;p&gt;Welcome to HTML.&lt;/p&gt;
+                </code></pre>
+
+
+                <h3>Example 2</h3>
+
+                <pre><code class="language-html">
+&lt;p&gt;HTML is easy to learn.&lt;/p&gt;
+                </code></pre>
+
+
+                <h3>Example 3</h3>
+
+                <pre><code class="language-html">
+&lt;p&gt;I am learning web development.&lt;/p&gt;
+                </code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= CONCEPT 3 ================= -->
+
+        <section class="concept">
+
+            <h2>3. HTML Link</h2>
+
+            <p>
+                The anchor tag is used to create links.
+            </p>
+
+
+            <div class="code-title">
+
+                <span>HTML Code</span>
+
+                <button
+                    class="copy-btn"
+                    onclick="copyCode(this)">
+                    Copy Code
+                </button>
+
+            </div>
+
+
+            <pre><code class="language-html">
+&lt;a href="https://www.google.com"&gt;
+    Visit Google
+&lt;/a&gt;
+            </code></pre>
+
+
+            <div class="output-box">
+
+                <h3>Output</h3>
+
+                <a
+                    href="https://www.google.com"
+                    target="_blank">
+
+                    Visit Google
+
+                </a>
+
+            </div>
+
+
+            <button
+                class="view-btn"
+                onclick="toggleExamples(this)">
+
+                View More Examples
+
+            </button>
+
+
+            <div class="more-examples">
+
+                <h3>Example 1</h3>
+
+                <pre><code class="language-html">
+&lt;a href="about.html"&gt;
+    About Us
+&lt;/a&gt;
+                </code></pre>
+
+
+                <h3>Example 2</h3>
+
+                <pre><code class="language-html">
+&lt;a href="contact.html"&gt;
+    Contact Us
+&lt;/a&gt;
+                </code></pre>
+
+
+                <h3>Example 3</h3>
+
+                <pre><code class="language-html">
+&lt;a href="mailto:test@gmail.com"&gt;
+    Send Email
+&lt;/a&gt;
+                </code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= CONCEPT 4 ================= -->
+
+        <section class="concept">
+
+            <h2>4. HTML Image</h2>
+
+            <p>
+                The img tag is used to display images.
+            </p>
+
+
+            <div class="code-title">
+
+                <span>HTML Code</span>
+
+                <button
+                    class="copy-btn"
+                    onclick="copyCode(this)">
+                    Copy Code
+                </button>
+
+            </div>
+
+
+            <pre><code class="language-html">
+&lt;img
+    src="image.jpg"
+    alt="Sample Image"
+    width="200"&gt;
+            </code></pre>
+
+
+            <div class="output-box">
+
+                <h3>Output</h3>
+
+                <img
+                    src="https://via.placeholder.com/200"
+                    alt="Sample Image">
+
+            </div>
+
+
+            <button
+                class="view-btn"
+                onclick="toggleExamples(this)">
+
+                View More Examples
+
+            </button>
+
+
+            <div class="more-examples">
+
+                <h3>Example 1</h3>
+
+                <pre><code class="language-html">
+&lt;img src="flower.jpg" alt="Flower"&gt;
+                </code></pre>
+
+
+                <h3>Example 2</h3>
+
+                <pre><code class="language-html">
+&lt;img src="logo.png" alt="Company Logo"&gt;
+                </code></pre>
+
+
+                <h3>Example 3</h3>
+
+                <pre><code class="language-html">
+&lt;img src="profile.jpg"
+     alt="Profile Picture"
+     width="150"&gt;
+                </code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= CONCEPT 5 ================= -->
+
+        <section class="concept">
+
+            <h2>5. HTML Button</h2>
+
+            <p>
+                The button tag is used to create buttons.
+            </p>
+
+
+            <div class="code-title">
+
+                <span>HTML Code</span>
+
+                <button
+                    class="copy-btn"
+                    onclick="copyCode(this)">
+                    Copy Code
+                </button>
+
+            </div>
+
+
+            <pre><code class="language-html">
+&lt;button&gt;
+    Click Me
+&lt;/button&gt;
+            </code></pre>
+
+
+            <div class="output-box">
+
+                <h3>Output</h3>
+
+                <button>
+                    Click Me
+                </button>
+
+            </div>
+
+
+            <button
+                class="view-btn"
+                onclick="toggleExamples(this)">
+
+                View More Examples
+
+            </button>
+
+
+            <div class="more-examples">
+
+                <h3>Example 1</h3>
+
+                <pre><code class="language-html">
+&lt;button&gt;Submit&lt;/button&gt;
+                </code></pre>
+
+
+                <h3>Example 2</h3>
+
+                <pre><code class="language-html">
+&lt;button&gt;Login&lt;/button&gt;
+                </code></pre>
+
+
+                <h3>Example 3</h3>
+
+                <pre><code class="language-html">
+&lt;button&gt;Register&lt;/button&gt;
+                </code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= CONCEPT 6 ================= -->
+
+        <section class="concept">
+
+            <h2>6. HTML List</h2>
+
+            <p>
+                HTML provides ordered and unordered lists.
+            </p>
+
+
+            <div class="code-title">
+
+                <span>HTML Code</span>
+
+                <button
+                    class="copy-btn"
+                    onclick="copyCode(this)">
+                    Copy Code
+                </button>
+
+            </div>
+
+
+            <pre><code class="language-html">
+&lt;ul&gt;
+    &lt;li&gt;HTML&lt;/li&gt;
+    &lt;li&gt;CSS&lt;/li&gt;
+    &lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ul&gt;
+            </code></pre>
+
+
+            <div class="output-box">
+
+                <h3>Output</h3>
+
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                </ul>
+
+            </div>
+
+
+            <button
+                class="view-btn"
+                onclick="toggleExamples(this)">
+
+                View More Examples
+
+            </button>
+
+
+            <div class="more-examples">
+
+                <h3>Ordered List</h3>
+
+                <pre><code class="language-html">
+&lt;ol&gt;
+    &lt;li&gt;HTML&lt;/li&gt;
+    &lt;li&gt;CSS&lt;/li&gt;
+    &lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ol&gt;
+                </code></pre>
+
+
+                <h3>Unordered List</h3>
+
+                <pre><code class="language-html">
+&lt;ul&gt;
+    &lt;li&gt;Apple&lt;/li&gt;
+    &lt;li&gt;Mango&lt;/li&gt;
+    &lt;li&gt;Orange&lt;/li&gt;
+&lt;/ul&gt;
+                </code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= CONCEPT 7 ================= -->
+
+        <section class="concept">
+
+            <h2>7. HTML Table</h2>
+
+            <p>
+                The table tag is used to create tables.
+            </p>
+
+
+            <div class="code-title">
+
+                <span>HTML Code</span>
+
+                <button
+                    class="copy-btn"
+                    onclick="copyCode(this)">
+                    Copy Code
+                </button>
+
+            </div>
+
+
+            <pre><code class="language-html">
+&lt;table border="1"&gt;
+
+    &lt;tr&gt;
+        &lt;th&gt;Name&lt;/th&gt;
+        &lt;th&gt;Age&lt;/th&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;Pooja&lt;/td&gt;
+        &lt;td&gt;25&lt;/td&gt;
+    &lt;/tr&gt;
+
+&lt;/table&gt;
+            </code></pre>
+
+
+            <div class="output-box">
+
+                <h3>Output</h3>
+
+                <table border="1">
+
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                    </tr>
+
+                    <tr>
+                        <td>Pooja</td>
+                        <td>25</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+
+            <button
+                class="view-btn"
+                onclick="toggleExamples(this)">
+
+                View More Examples
+
+            </button>
+
+
+            <div class="more-examples">
+
+                <h3>Example 1</h3>
+
+                <pre><code class="language-html">
+&lt;table border="1"&gt;
+
+    &lt;tr&gt;
+        &lt;th&gt;Name&lt;/th&gt;
+        &lt;th&gt;City&lt;/th&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;Pooja&lt;/td&gt;
+        &lt;td&gt;Mysuru&lt;/td&gt;
+    &lt;/tr&gt;
+
+&lt;/table&gt;
+                </code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= CONCEPT 8 ================= -->
+
+        <section class="concept">
+
+            <h2>8. HTML Form</h2>
+
+            <p>
+                Forms are used to collect information from users.
+            </p>
+
+
+            <div class="code-title">
+
+                <span>HTML Code</span>
+
+                <button
+                    class="copy-btn"
+                    onclick="copyCode(this)">
+                    Copy Code
+                </button>
+
+            </div>
+
+
+            <pre><code class="language-html">
+&lt;form&gt;
+
+    &lt;label&gt;Name:&lt;/label&gt;
+
+    &lt;input type="text"&gt;
+
+    &lt;br&gt;&lt;br&gt;
+
+    &lt;button type="submit"&gt;
+        Submit
+    &lt;/button&gt;
+
+&lt;/form&gt;
+            </code></pre>
+
+
+            <div class="output-box">
+
+                <h3>Output</h3>
+
+                <form>
+
+                    <label>Name:</label>
+
+                    <input type="text">
+
+                    <br><br>
+
+                    <button type="submit">
+                        Submit
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <button
+                class="view-btn"
+                onclick="toggleExamples(this)">
+
+                View More Examples
+
+            </button>
+
+
+            <div class="more-examples">
+
+                <h3>Example 1</h3>
+
+                <pre><code class="language-html">
+&lt;input type="text"
+       placeholder="Enter your name"&gt;
+                </code></pre>
+
+
+                <h3>Example 2</h3>
+
+                <pre><code class="language-html">
+&lt;input type="email"
+       placeholder="Enter email"&gt;
+                </code></pre>
+
+
+                <h3>Example 3</h3>
+
+                <pre><code class="language-html">
+&lt;input type="password"
+       placeholder="Enter password"&gt;
+                </code></pre>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            Basic HTML Code Snippets
+        </p>
+
+    </footer>
+
+
+
+    <!-- Prism JS -->
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js">
+    </script>
+
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js">
+</script>
+    <!-- Our JavaScript -->
+
+<script>
+    /* ================= COPY CODE ================= */
+
+function copyCode(button) {
+
+    // Find the code box
+    let codeBox = button.parentElement.nextElementSibling;
+
+    // Get the code text
+    let code = codeBox.innerText;
+
+    // Copy the code
+    navigator.clipboard.writeText(code);
+
+    // Change button text
+    button.innerText = "Copied!";
+
+    // Change back after 2 seconds
+    setTimeout(function () {
+
+        button.innerText = "Copy Code";
+
+    }, 2000);
+}
+
+
+
+/* ================= VIEW MORE ================= */
+
+function toggleExamples(button) {
+
+    // Find the examples section
+    let examples = button.nextElementSibling;
+
+
+    // Check whether it is hidden
+    if (examples.style.display === "block") {
+
+        // Hide examples
+        examples.style.display = "none";
+
+        // Change button text
+        button.innerText = "View More Examples";
+
+    } else {
+
+        // Show examples
+        examples.style.display = "block";
+
+        // Change button text
+        button.innerText = "Hide Examples";
+
+    }
+
+}
+</script>
+
+</body>
+
+</html>

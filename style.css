@@ -1,0 +1,339 @@
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f6f8;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           TOP NAVBAR
+        ========================= */
+
+        .top-navbar {
+            height: 70px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e5dce4;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .menu-toggle {
+            border: none;
+            background: transparent;
+            font-size: 24px;
+            color: #5a1642;
+            padding: 0;
+        }
+
+        .navbar-title {
+            color: #5a1642;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .navbar-subtitle {
+            font-size: 12px;
+            color: #777;
+        }
+
+        .doctor-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .doctor-profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .doctor-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .doctor-role {
+            font-size: 11px;
+            color: #777;
+        }
+
+        .notification-icon {
+            font-size: 20px;
+            color: #5a1642;
+            position: relative;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -7px;
+            right: -8px;
+            font-size: 9px;
+        }
+
+
+        /* =========================
+           SIDEBAR
+        ========================= */
+
+        .sidebar {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 260px;
+            height: calc(100vh - 70px);
+            background: #4b1238;
+            transition: all 0.3s ease;
+            z-index: 999;
+            overflow-y: auto;
+        }
+
+        .sidebar.collapsed {
+            width: 80px;
+        }
+
+        .brand-section {
+            padding: 20px 15px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .brand-icon {
+            font-size: 30px;
+            color: #f4c95d;
+        }
+
+        .brand-name {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        .brand-subtitle {
+            color: #e7cfe0;
+            font-size: 11px;
+        }
+
+        .sidebar-menu {
+            padding: 15px 10px;
+        }
+
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 13px;
+            margin-bottom: 5px;
+            border-radius: 7px;
+            font-size: 14px;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+
+        .sidebar-menu a i {
+            font-size: 17px;
+            min-width: 20px;
+        }
+
+        .sidebar-menu a:hover {
+            background-color: rgba(255,255,255,0.12);
+        }
+
+        .sidebar-menu a.active {
+            background-color: #f4c95d;
+            color: #4b1238;
+            font-weight: 600;
+        }
+
+        /* Collapsed sidebar */
+
+        .sidebar.collapsed .brand-name,
+        .sidebar.collapsed .brand-subtitle,
+        .sidebar.collapsed .menu-text {
+            display: none;
+        }
+
+        .sidebar.collapsed .brand-section {
+            padding: 20px 5px;
+        }
+
+        .sidebar.collapsed .sidebar-menu a {
+            justify-content: center;
+            padding: 12px 5px;
+        }
+
+        .sidebar.collapsed .sidebar-menu a i {
+            margin: 0;
+        }
+
+
+        /* =========================
+           MAIN CONTENT
+        ========================= */
+
+        .main-content {
+            margin-left: 260px;
+            padding-top: 70px;
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        .main-content.expanded {
+            margin-left: 80px;
+        }
+
+        .dashboard-container {
+            padding: 30px;
+        }
+
+        .page-title {
+            color: #4b1238;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .breadcrumb {
+            font-size: 13px;
+        }
+
+        .breadcrumb-item a {
+            color: #8a245c;
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            .sidebar {
+                left: -260px;
+            }
+
+            .sidebar.mobile-show {
+                left: 0;
+            }
+
+            .main-content {
+                margin-left: 0 !important;
+            }
+
+            .dashboard-container {
+                padding: 20px 15px;
+            }
+
+            .navbar-title {
+                font-size: 16px;
+            }
+
+            .doctor-profile .doctor-details {
+                display: none;
+            }
+        }
+   
+
+
+    /* =========================
+       SIDEBAR
+    ========================= */
+
+    .sidebar {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 260px;
+        height: calc(100vh - 70px);
+        background-color: #4b1238;
+        z-index: 999;
+        overflow-y: auto;
+        transition: width 0.3s ease, left 0.3s ease;
+    }
+
+    /* COLLAPSED SIDEBAR */
+
+    .sidebar.collapsed {
+        width: 80px;
+    }
+
+    /* Hide text when collapsed */
+
+    .sidebar.collapsed .menu-text,
+    .sidebar.collapsed .brand-name,
+    .sidebar.collapsed .brand-subtitle {
+        display: none;
+    }
+
+    /* Center icons */
+
+    .sidebar.collapsed .sidebar-menu a {
+        justify-content: center;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .sidebar.collapsed .sidebar-menu a i {
+        margin: 0;
+    }
+
+    .sidebar.collapsed .brand-section {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+
+    /* =========================
+       MAIN CONTENT
+    ========================= */
+
+    .main-content {
+        margin-left: 260px;
+        padding-top: 70px;
+        min-height: 100vh;
+        transition: margin-left 0.3s ease;
+    }
+
+    .main-content.expanded {
+        margin-left: 80px;
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 768px) {
+
+        .sidebar {
+            left: -260px;
+            width: 260px;
+        }
+
+        .sidebar.mobile-show {
+            left: 0;
+        }
+
+        /* Keep full sidebar on mobile */
+
+        .sidebar.mobile-show .menu-text,
+        .sidebar.mobile-show .brand-name,
+        .sidebar.mobile-show .brand-subtitle {
+            display: block;
+        }
+
+        .main-content,
+        .main-content.expanded {
+            margin-left: 0;
+        }
+
+    }
