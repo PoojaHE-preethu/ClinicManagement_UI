@@ -625,6 +625,67 @@
 
         }
 
+        /* =========================
+   DOCTOR SCHEDULE
+========================= */
+
+.schedule-table th {
+    background: #163A5F;
+    color: white;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.schedule-table td {
+    vertical-align: middle;
+    font-size: 13px;
+}
+
+.btn-add {
+    background: #163A5F;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 7px;
+}
+
+.btn-add:hover {
+    background: #64184c;
+    color: white;
+}
+
+.btn-edit {
+    color: #163A5F;
+    border: 1px solid #163A5F;
+}
+
+.btn-edit:hover {
+    background: #163A5F;
+    color: white;
+}
+
+.btn-delete {
+    color: #dc3545;
+    border: 1px solid #dc3545;
+}
+
+.btn-delete:hover {
+    background: #dc3545;
+    color: white;
+}
+
+.schedule-time {
+    white-space: nowrap;
+}
+
+.schedule-badge {
+    background: #f4c95d;
+    color: #163A5F;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+}
     </style>
 
 </head>
@@ -1295,217 +1356,293 @@
 
 </div>
 
-        <!-- =================================
-             RECEPTIONIST MANAGEMENT
-        ================================== -->
+    <!-- =========================================
+     DOCTOR SCHEDULE MANAGEMENT
+========================================== -->
 
-        <div class="section-card">
+<div class="section-card">
 
+    <!-- HEADER -->
+    <div class="d-flex
+                justify-content-between
+                align-items-center
+                flex-wrap
+                gap-2
+                mb-4">
 
-            <!-- HEADER -->
-<div class="d-flex
-            justify-content-between
-            align-items-center
-            flex-wrap
-            gap-2
-            mb-4">
+        <div>
 
-    <div>
+            <div class="section-title">
 
-        <div class="section-title">
-            Receptionist Management
-        </div>
-
-        <small class="text-muted">
-            Add and manage clinic receptionists
-        </small>
-
-    </div>
-
-    <!-- SEARCH + ADD BUTTON -->
-    <div class="d-flex gap-2">
-
-        <!-- SEARCH -->
-        <div class="input-group">
-            <span class="input-group-text">
-                <i class="bi bi-search"></i>
-            </span>
-
-            <input type="text"
-                   class="form-control"
-                   id="searchReceptionist"
-                   placeholder="Search receptionist">
-        </div>
-
-        <!-- ADD RECEPTIONIST -->
-        <button
-            type="button"
-            class="btn btn-add"
-            data-bs-toggle="modal"
-            data-bs-target="#receptionistModal"
-            onclick="openAddForm()">
-
-            <i class="bi bi-plus-lg"></i>
-            Add Receptionist
-
-        </button>
-
-    </div>
-
-</div>
-
-
-            <!-- TABLE -->
-
-            <div class="table-responsive">
-
-
-                <table
-                    class="table
-                           table-bordered
-                           table-hover
-                           receptionist-table">
-
-
-                    <thead>
-
-                        <tr>
-
-                            <th>
-                                Profile
-                            </th>
-
-                            <th>
-                                Name
-                            </th>
-
-                            <th>
-                                Contact
-                            </th>
-
-                            <th>
-                                Address
-                            </th>
-
-                            <th>
-                                City
-                            </th>
-
-                            <th>
-                                Username
-                            </th>
-
-                            <th>
-                                Status
-                            </th>
-
-                            <th>
-                                Action
-                            </th>
-
-                        </tr>
-
-                    </thead>
-
-
-                    <tbody id="receptionistTable">
-
-
-                        <!-- SAMPLE DATA -->
-
-                        <tr>
-
-                            <td>
-
-                                <img
-                                    src="https://i.pravatar.cc/100?img=47"
-                                    class="receptionist-photo">
-
-                            </td>
-
-                            <td>
-                                Anitha
-                            </td>
-
-                            <td>
-                                9876543210
-                            </td>
-
-                            <td>
-                                Kuvempunagar
-                            </td>
-
-                            <td>
-                                Mysore
-                            </td>
-
-                            <td>
-                                anitha01
-                            </td>
-
-                            <td>
-
-                                <span class="status-active">
-                                    Active
-                                </span>
-
-                            </td>
-
-                            <td>
-
-                                <button
-                                    class="btn btn-sm btn-edit">
-
-                                    <i class="bi bi-pencil"></i>
-
-                                </button>
-                            </td>
-
-                        </tr>
-
-
-                    </tbody>
-
-                </table>
+                <i class="bi bi-calendar-week me-2"></i>
+                Doctor Schedule
 
             </div>
 
+            <small class="text-muted">
+                Add and manage doctor schedules
+            </small>
+
         </div>
 
+
+        <!-- SEARCH + ADD BUTTON -->
+        <div class="d-flex gap-2">
+
+            <!-- SEARCH -->
+            <div class="input-group">
+
+                <span class="input-group-text">
+                    <i class="bi bi-search"></i>
+                </span>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="searchSchedule"
+                    placeholder="Search doctor, department or day">
+
+            </div>
+
+
+            <!-- ADD SCHEDULE -->
+            <button
+                type="button"
+                class="btn btn-add text-nowrap"
+                data-bs-toggle="modal"
+                data-bs-target="#scheduleModal"
+                onclick="openScheduleForm()">
+
+                <i class="bi bi-plus-lg"></i>
+                Add Schedule
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- TABLE -->
+    <div class="table-responsive">
+
+        <table class="table table-bordered table-hover schedule-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>#</th>
+
+                    <th>
+                        Doctor
+                    </th>
+
+                    <th>
+                        Department
+                    </th>
+
+                    <th>
+                        Date
+                    </th>
+
+                    <th>
+                        Day
+                    </th>
+
+                    <th>
+                        Start Time
+                    </th>
+
+                    <th>
+                        End Time
+                    </th>
+
+                    <th>
+                        Type
+                    </th>
+
+                    <th>
+                        Room / Location
+                    </th>
+
+                    <th>
+                        Action
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="scheduleTable">
+
+                <!-- SAMPLE DATA -->
+
+                <tr>
+
+                    <td>1</td>
+
+                    <td>
+                        Dr. Pooja
+                    </td>
+
+                    <td>
+                        General Physician
+                    </td>
+
+                    <td>
+                        20-05-2025
+                    </td>
+
+                    <td>
+                        Tuesday
+                    </td>
+
+                    <td class="schedule-time">
+                        09:00 AM
+                    </td>
+
+                    <td class="schedule-time">
+                        01:00 PM
+                    </td>
+
+                    <td>
+                        <span class="schedule-badge">
+                            Consultation
+                        </span>
+                    </td>
+
+                    <td>
+                        Room 101
+                    </td>
+
+                    <td>
+
+                        <button
+                            type="button"
+                            class="btn btn-sm btn-edit"
+                            onclick="editSchedule(this)">
+
+                            <i class="bi bi-pencil"></i>
+
+                        </button>
+
+                        <button
+                            type="button"
+                            class="btn btn-sm btn-delete"
+                            onclick="deleteSchedule(this)">
+
+                            <i class="bi bi-trash"></i>
+
+                        </button>
+
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>2</td>
+
+                    <td>
+                        Dr. Rahul
+                    </td>
+
+                    <td>
+                        Orthopedics
+                    </td>
+
+                    <td>
+                        21-05-2025
+                    </td>
+
+                    <td>
+                        Wednesday
+                    </td>
+
+                    <td class="schedule-time">
+                        02:00 PM
+                    </td>
+
+                    <td class="schedule-time">
+                        06:00 PM
+                    </td>
+
+                    <td>
+                        <span class="schedule-badge">
+                            Consultation
+                        </span>
+                    </td>
+
+                    <td>
+                        Room 102
+                    </td>
+
+                    <td>
+
+                        <button
+                            type="button"
+                            class="btn btn-sm btn-edit"
+                            onclick="editSchedule(this)">
+
+                            <i class="bi bi-pencil"></i>
+
+                        </button>
+
+                        <button
+                            type="button"
+                            class="btn btn-sm btn-delete"
+                            onclick="deleteSchedule(this)">
+
+                            <i class="bi bi-trash"></i>
+
+                        </button>
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div> 
 
     </div>
 
 </main>
 
 
-
 <!-- =========================================
-     ADD RECEPTIONIST MODAL
-========================================= -->
+     ADD DOCTOR SCHEDULE MODAL
+========================================== -->
 
 <div
     class="modal fade"
-    id="receptionistModal"
-    tabindex="-1">
-
+    id="scheduleModal"
+    tabindex="-1"
+    aria-hidden="true">
 
     <div
-        class="modal-dialog modal-lg
-               modal-dialog-centered">
-
+        class="modal-dialog modal-lg modal-dialog-centered">
 
         <div class="modal-content">
 
 
+            <!-- MODAL HEADER -->
+
             <div class="modal-header">
 
-                <h5 class="modal-title"
-                    id="modalTitle">
+                <h5 class="modal-title" id="scheduleModalTitle">
 
-                    Add Receptionist
+                    <i class="bi bi-calendar-plus me-2"></i>
+                    Add Doctor Schedule
 
                 </h5>
-
 
                 <button
                     type="button"
@@ -1517,158 +1654,46 @@
             </div>
 
 
-            <form id="receptionistForm">
+            <!-- FORM -->
 
+            <form id="scheduleForm">
 
                 <div class="modal-body">
-
 
                     <div class="row">
 
 
-                        <!-- PROFILE PIC -->
-
-                        <div class="col-md-12 mb-3">
-
-                            <label class="form-label">
-                                Profile Picture
-                            </label>
-
-                            <input
-                                type="file"
-                                class="form-control"
-                                id="profilePic"
-                                accept="image/*">
-
-                        </div>
-
-
-                        <!-- NAME -->
+                        <!-- DOCTOR -->
 
                         <div class="col-md-6 mb-3">
 
                             <label class="form-label">
-                                Name
-                            </label>
-
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="receptionistName"
-                                placeholder="Enter receptionist name"
-                                required>
-
-                        </div>
-
-
-                        <!-- CONTACT -->
-
-                        <div class="col-md-6 mb-3">
-
-                            <label class="form-label">
-                                Contact
-                            </label>
-
-                            <input
-                                type="tel"
-                                class="form-control"
-                                id="receptionistContact"
-                                placeholder="Enter contact number"
-                                required>
-
-                        </div>
-
-
-                        <!-- ADDRESS -->
-
-                        <div class="col-md-12 mb-3">
-
-                            <label class="form-label">
-                                Address
-                            </label>
-
-                            <textarea
-                                class="form-control"
-                                id="receptionistAddress"
-                                rows="2"
-                                placeholder="Enter address"
-                                required></textarea>
-
-                        </div>
-
-
-                        <!-- CITY -->
-
-                        <div class="col-md-6 mb-3">
-
-                            <label class="form-label">
-                                City
-                            </label>
-
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="receptionistCity"
-                                placeholder="Enter city"
-                                required>
-
-                        </div>
-
-
-                        <!-- USERNAME -->
-
-                        <div class="col-md-6 mb-3">
-
-                            <label class="form-label">
-                                Username
-                            </label>
-
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="receptionistUsername"
-                                placeholder="Enter username"
-                                required>
-
-                        </div>
-
-
-                        <!-- PASSWORD -->
-
-                        <div class="col-md-6 mb-3">
-
-                            <label class="form-label">
-                                Password
-                            </label>
-
-                            <input
-                                type="password"
-                                class="form-control"
-                                id="receptionistPassword"
-                                placeholder="Enter password"
-                                required>
-
-                        </div>
-
-
-                        <!-- STATUS -->
-
-                        <div class="col-md-6 mb-3">
-
-                            <label class="form-label">
-                                Status
+                                Doctor
                             </label>
 
                             <select
                                 class="form-select"
-                                id="receptionistStatus">
+                                id="scheduleDoctor"
+                                required>
 
-                                <option value="Active">
-                                    Active
+                                <option value="">
+                                    -- Select Doctor --
                                 </option>
 
-                                <option value="Inactive">
-                                    Inactive
+                                <option>
+                                    Dr. Pooja
+                                </option>
+
+                                <option>
+                                    Dr. Rahul
+                                </option>
+
+                                <option>
+                                    Dr. Anjali
+                                </option>
+
+                                <option>
+                                    Dr. Suresh
                                 </option>
 
                             </select>
@@ -1676,10 +1701,190 @@
                         </div>
 
 
+                        <!-- DEPARTMENT -->
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">
+                                Department
+                            </label>
+
+                            <select
+                                class="form-select"
+                                id="scheduleDepartment"
+                                required>
+
+                                <option value="">
+                                    -- Select Department --
+                                </option>
+
+                                <option>
+                                    General Physician
+                                </option>
+
+                                <option>
+                                    Orthopedics
+                                </option>
+
+                                <option>
+                                    Pediatrics
+                                </option>
+
+                                <option>
+                                    Cardiology
+                                </option>
+
+                                <option>
+                                    Dermatology
+                                </option>
+
+                                <option>
+                                    ENT
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- DATE -->
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">
+                                Date
+                            </label>
+
+                            <input
+                                type="date"
+                                class="form-control"
+                                id="scheduleDate"
+                                required>
+
+                        </div>
+
+
+                        <!-- DAY -->
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">
+                                Day
+                            </label>
+
+                            <select
+                                class="form-select"
+                                id="scheduleDay"
+                                required>
+
+                                <option value="">
+                                    -- Select Day --
+                                </option>
+
+                                <option>Monday</option>
+                                <option>Tuesday</option>
+                                <option>Wednesday</option>
+                                <option>Thursday</option>
+                                <option>Friday</option>
+                                <option>Saturday</option>
+                                <option>Sunday</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- START TIME -->
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">
+                                Start Time
+                            </label>
+
+                            <input
+                                type="time"
+                                class="form-control"
+                                id="scheduleStartTime"
+                                required>
+
+                        </div>
+
+
+                        <!-- END TIME -->
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">
+                                End Time
+                            </label>
+
+                            <input
+                                type="time"
+                                class="form-control"
+                                id="scheduleEndTime"
+                                required>
+
+                        </div>
+
+
+                        <!-- CONSULTATION TYPE -->
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">
+                                Consultation Type
+                            </label>
+
+                            <select
+                                class="form-select"
+                                id="scheduleType"
+                                required>
+
+                                <option value="">
+                                    -- Select Type --
+                                </option>
+
+                                <option>
+                                    Consultation
+                                </option>
+
+                                <option>
+                                    Follow-up
+                                </option>
+
+                                <option>
+                                    Emergency
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- ROOM -->
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">
+                                Room / Location
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="scheduleRoom"
+                                placeholder="Enter room / location"
+                                required>
+
+                        </div>
+
                     </div>
 
                 </div>
 
+
+                <!-- FOOTER -->
 
                 <div class="modal-footer">
 
@@ -1698,13 +1903,11 @@
                         class="btn btn-add">
 
                         <i class="bi bi-check-lg"></i>
-
-                        Save Receptionist
+                        Save Schedule
 
                     </button>
 
                 </div>
-
 
             </form>
 
@@ -1761,6 +1964,34 @@ menuToggle.addEventListener("click", function () {
 
 });
 
+
+
+document.getElementById("searchSchedule")
+.addEventListener("keyup", function () {
+
+    let searchValue = this.value.toLowerCase();
+
+    let rows = document.querySelectorAll(
+        "#scheduleTable tr"
+    );
+
+    rows.forEach(function (row) {
+
+        let rowText = row.innerText.toLowerCase();
+
+        if (rowText.includes(searchValue)) {
+
+            row.style.display = "";
+
+        } else {
+
+            row.style.display = "none";
+
+        }
+
+    });
+
+});
 
 
 /* =========================================

@@ -81,7 +81,7 @@
 
             font-size: 24px;
 
-            color: #5a1642;
+            color: #163A5F;
 
             padding: 0;
         }
@@ -89,7 +89,7 @@
 
         .navbar-title {
 
-            color: #5a1642;
+            color: #163A5F;
 
             font-size: 20px;
 
@@ -847,7 +847,209 @@
 
         }
 
-    </style>
+    
+/* =====================================================
+   DOCTOR PROFILE CONSISTENT SIZING
+===================================================== */
+
+.receptionist-card {
+    padding: 25px !important;
+    border-radius: 12px !important;
+}
+
+.receptionist-title {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+}
+
+.receptionist-subtitle {
+    font-size: 13px !important;
+}
+
+.btn-add-receptionist {
+    padding: 10px 18px !important;
+    border-radius: 7px !important;
+    font-size: 14px !important;
+}
+
+.btn-add-receptionist i {
+    font-size: 15px !important;
+}
+
+.receptionist-table thead th {
+    font-size: 13px !important;
+    padding: 12px !important;
+}
+
+.receptionist-table tbody td {
+    font-size: 13px !important;
+    padding: 10px 12px !important;
+}
+
+.receptionist-photo {
+    width: 45px !important;
+    height: 45px !important;
+}
+
+.status-active,
+.status-inactive {
+    padding: 5px 10px !important;
+    font-size: 11px !important;
+}
+
+.btn-edit {
+    width: 38px !important;
+    height: 36px !important;
+    font-size: 15px !important;
+}
+
+.modal-title {
+    font-size: 20px !important;
+}
+
+.form-label {
+    font-size: 13px !important;
+}
+
+.form-control,
+.form-select {
+    font-size: 14px !important;
+    min-height: 42px !important;
+}
+
+/* =====================================================
+   DOCTOR SCHEDULE
+===================================================== */
+
+.doctor-schedule-card {
+    background: #ffffff;
+    border: 1px solid #eadfe6;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+}
+
+.doctor-schedule-title {
+    color: #163A5F;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.doctor-schedule-subtitle {
+    color: #777;
+    font-size: 13px;
+}
+
+.doctor-schedule-date {
+    width: 220px;
+}
+
+.doctor-schedule-date .form-control {
+    min-height: 42px;
+    font-size: 14px;
+}
+
+.doctor-schedule-search {
+    max-width: 380px;
+}
+
+.doctor-schedule-search .input-group {
+    border: 1px solid #d9d0d7;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.doctor-schedule-search .input-group-text {
+    background: #ffffff;
+    border: none;
+    color: #163A5F;
+}
+
+.doctor-schedule-search .form-control {
+    border: none;
+    min-height: 42px;
+    font-size: 14px;
+}
+
+.doctor-schedule-search .form-control:focus {
+    box-shadow: none;
+}
+
+.schedule-slot {
+    background: #ffffff;
+    border: 1px solid #eadfe6;
+    border-radius: 12px;
+    padding: 20px;
+    min-height: 112px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.schedule-slot:hover {
+    box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+}
+
+.slot-time {
+    color: #163A5F;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+
+.slot-session {
+    color: #555;
+    font-size: 13px;
+}
+
+.slot-status {
+    display: inline-block;
+    padding: 6px 11px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.slot-status.available {
+    background: #dff5e7;
+    color: #198754;
+}
+
+.slot-status.booked {
+    background: #f8d7da;
+    color: #dc3545;
+}
+
+.schedule-info {
+    background: #f8f6f8;
+    border: 1px solid #eadfe6;
+    border-radius: 8px;
+    padding: 13px 15px;
+    color: #163A5F;
+    font-size: 13px;
+}
+
+@media(max-width:768px) {
+    .doctor-schedule-card {
+        padding: 20px 15px;
+    }
+
+    .doctor-schedule-date,
+    .doctor-schedule-search {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .schedule-slot {
+        min-height: 100px;
+        padding: 17px;
+    }
+}
+
+</style>
 
 </head>
 
@@ -1490,6 +1692,322 @@
         </div>
 
     </div>
+
+
+<!-- =====================================================
+     DOCTOR SCHEDULE
+====================================================== -->
+
+<div class="doctor-schedule-card mt-4">
+
+    <!-- HEADER -->
+
+    <div class="d-flex
+                justify-content-between
+                align-items-start
+                flex-wrap
+                gap-3
+                mb-4">
+
+        <div>
+
+            <div class="doctor-schedule-title">
+
+                <i class="bi bi-calendar-week me-2"></i>
+                Doctor Schedule
+
+            </div>
+
+            <div class="doctor-schedule-subtitle mt-1">
+
+                Today's available appointment slots
+
+            </div>
+
+        </div>
+
+
+        <!-- DATE -->
+
+        <div class="doctor-schedule-date">
+
+            <input
+                type="date"
+                class="form-control"
+                value="2025-05-20">
+
+        </div>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <div class="doctor-schedule-search mb-4">
+
+        <div class="input-group">
+
+            <span class="input-group-text">
+
+                <i class="bi bi-search"></i>
+
+            </span>
+
+            <input
+                type="text"
+                class="form-control"
+                id="searchDoctorSchedule"
+                placeholder="Search time slot, session or status">
+
+        </div>
+
+    </div>
+
+
+    <!-- SCHEDULE SLOTS -->
+
+    <div class="row g-3" id="doctorScheduleSlots">
+
+        <div class="col-lg-4 col-md-6 doctor-schedule-item">
+
+            <div class="schedule-slot">
+
+                <div>
+                    <div class="slot-time">
+                        09:00 AM - 09:30 AM
+                    </div>
+
+                    <div class="slot-session">
+                        Morning Session
+                    </div>
+                </div>
+
+                <span class="slot-status available">
+                    Available
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-4 col-md-6 doctor-schedule-item">
+
+            <div class="schedule-slot">
+
+                <div>
+                    <div class="slot-time">
+                        09:30 AM - 10:00 AM
+                    </div>
+
+                    <div class="slot-session">
+                        Morning Session
+                    </div>
+                </div>
+
+                <span class="slot-status booked">
+                    Booked
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-4 col-md-6 doctor-schedule-item">
+
+            <div class="schedule-slot">
+
+                <div>
+                    <div class="slot-time">
+                        10:00 AM - 10:30 AM
+                    </div>
+
+                    <div class="slot-session">
+                        Morning Session
+                    </div>
+                </div>
+
+                <span class="slot-status available">
+                    Available
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-4 col-md-6 doctor-schedule-item">
+
+            <div class="schedule-slot">
+
+                <div>
+                    <div class="slot-time">
+                        10:30 AM - 11:00 AM
+                    </div>
+
+                    <div class="slot-session">
+                        Morning Session
+                    </div>
+                </div>
+
+                <span class="slot-status booked">
+                    Booked
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-4 col-md-6 doctor-schedule-item">
+
+            <div class="schedule-slot">
+
+                <div>
+                    <div class="slot-time">
+                        11:00 AM - 11:30 AM
+                    </div>
+
+                    <div class="slot-session">
+                        Morning Session
+                    </div>
+                </div>
+
+                <span class="slot-status available">
+                    Available
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-4 col-md-6 doctor-schedule-item">
+
+            <div class="schedule-slot">
+
+                <div>
+                    <div class="slot-time">
+                        11:30 AM - 12:00 PM
+                    </div>
+
+                    <div class="slot-session">
+                        Morning Session
+                    </div>
+                </div>
+
+                <span class="slot-status booked">
+                    Booked
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-4 col-md-6 doctor-schedule-item">
+
+            <div class="schedule-slot">
+
+                <div>
+                    <div class="slot-time">
+                        02:00 PM - 02:30 PM
+                    </div>
+
+                    <div class="slot-session">
+                        Afternoon Session
+                    </div>
+                </div>
+
+                <span class="slot-status available">
+                    Available
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-4 col-md-6 doctor-schedule-item">
+
+            <div class="schedule-slot">
+
+                <div>
+                    <div class="slot-time">
+                        02:30 PM - 03:00 PM
+                    </div>
+
+                    <div class="slot-session">
+                        Afternoon Session
+                    </div>
+                </div>
+
+                <span class="slot-status available">
+                    Available
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-4 col-md-6 doctor-schedule-item">
+
+            <div class="schedule-slot">
+
+                <div>
+                    <div class="slot-time">
+                        03:00 PM - 03:30 PM
+                    </div>
+
+                    <div class="slot-session">
+                        Afternoon Session
+                    </div>
+                </div>
+
+                <span class="slot-status booked">
+                    Booked
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- NO RESULT -->
+
+    <div
+        id="noDoctorSchedule"
+        class="text-center text-muted py-4"
+        style="display:none;">
+
+        <i class="bi bi-search fs-3"></i>
+
+        <div class="mt-2">
+            No schedule found.
+        </div>
+
+    </div>
+
+
+    <!-- SESSION INFORMATION -->
+
+    <div class="schedule-info mt-4">
+
+        <i class="bi bi-info-circle-fill me-2"></i>
+
+        Morning Session: 09:00 AM - 12:00 PM
+
+        <span class="mx-3 text-muted">|</span>
+
+        Afternoon Session: 02:00 PM - 05:00 PM
+
+    </div>
+
+</div>
 
 </main>
 
@@ -2214,6 +2732,55 @@
 
 </script>
 
+
+
+<script>
+/* =====================================================
+   DOCTOR SCHEDULE SEARCH
+===================================================== */
+
+const doctorScheduleSearch =
+    document.getElementById("searchDoctorSchedule");
+
+if (doctorScheduleSearch) {
+
+    doctorScheduleSearch.addEventListener("keyup", function () {
+
+        const searchText =
+            this.value.toLowerCase().trim();
+
+        const items =
+            document.querySelectorAll(
+                "#doctorScheduleSlots .doctor-schedule-item"
+            );
+
+        let found = false;
+
+        items.forEach(function (item) {
+
+            const itemText =
+                item.textContent.toLowerCase();
+
+            if (itemText.includes(searchText)) {
+
+                item.style.display = "";
+                found = true;
+
+            } else {
+
+                item.style.display = "none";
+
+            }
+
+        });
+
+        document.getElementById("noDoctorSchedule").style.display =
+            found ? "none" : "block";
+
+    });
+
+}
+</script>
 
 </body>
 
