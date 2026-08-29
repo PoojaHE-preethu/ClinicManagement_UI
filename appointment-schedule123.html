@@ -422,199 +422,7 @@
 
         }
 
-    
-/* =====================================================
-   TAKE APPOINTMENT
-===================================================== */
-
-.take-appointment-card {
-    background: #ffffff;
-    border: 1px solid #eadfe6;
-    border-radius: 12px;
-    padding: 25px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.04);
-}
-
-.take-appointment-title {
-    color: #163A5F;
-    font-size: 20px;
-    font-weight: 600;
-}
-
-.take-appointment-subtitle {
-    color: #777;
-    font-size: 13px;
-}
-
-.patient-search-box {
-    max-width: 650px;
-}
-
-.patient-search-box .input-group {
-    border: 1px solid #d9d0d7;
-    border-radius: 7px;
-    overflow: hidden;
-    background: #fff;
-}
-
-.patient-search-box .input-group-text {
-    background: #fff;
-    border: none;
-    color: #163A5F;
-}
-
-.patient-search-box .form-control {
-    border: none;
-    min-height: 42px;
-    font-size: 14px;
-}
-
-.patient-search-box .form-control:focus {
-    box-shadow: none;
-}
-
-.btn-search-patient {
-    min-height: 42px;
-    padding: 10px 18px;
-    border: none;
-    border-radius: 7px;
-    background: #163A5F;
-    color: #fff;
-    font-size: 14px;
-}
-
-.btn-search-patient:hover {
-    background: #64184c;
-    color: #fff;
-}
-
-.patient-result-card {
-    border: 1px solid #eadfe6;
-    border-radius: 10px;
-    padding: 18px;
-    background: #fff;
-}
-
-.patient-found {
-    border-left: 4px solid #198754;
-}
-
-.patient-not-found {
-    border-left: 4px solid #dc3545;
-}
-
-.patient-avatar {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.patient-name {
-    color: #163A5F;
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.patient-meta {
-    color: #666;
-    font-size: 12px;
-}
-
-.last-appointment-box {
-    background: #f8fafb;
-    border: 1px solid #e1e7eb;
-    border-radius: 8px;
-    padding: 13px;
-}
-
-.last-appointment-title {
-    color: #163A5F;
-    font-size: 13px;
-    font-weight: 600;
-}
-
-.last-appointment-item {
-    font-size: 12px;
-    color: #555;
-}
-
-.btn-take-appointment {
-    background: #163A5F;
-    color: #fff;
-    border: none;
-    padding: 9px 16px;
-    border-radius: 7px;
-    font-size: 13px;
-}
-
-.btn-take-appointment:hover {
-    background: #64184c;
-    color: #fff;
-}
-
-.btn-first-appointment {
-    background: #163A5F;
-    color: #fff;
-    border: none;
-    padding: 9px 16px;
-    border-radius: 7px;
-    font-size: 13px;
-}
-
-.btn-first-appointment:hover {
-    background: #64184c;
-    color: #fff;
-}
-
-.btn-cancel-search {
-    padding: 9px 16px;
-    border-radius: 7px;
-    font-size: 13px;
-}
-
-/* Keep appointment management controls consistent */
-.appointment-table th {
-    padding: 12px !important;
-}
-
-.appointment-table td {
-    padding: 10px 12px !important;
-}
-
-.appointment-table .btn {
-    width: 36px;
-    height: 34px;
-    padding: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 6px;
-}
-
-@media(max-width:768px) {
-    .take-appointment-card {
-        padding: 20px 15px;
-    }
-
-    .patient-search-box {
-        max-width: 100%;
-    }
-
-    .patient-search-actions {
-        width: 100%;
-    }
-
-    .patient-search-actions .btn-search-patient {
-        width: 100%;
-    }
-
-    .last-appointment-box {
-        margin-top: 15px;
-    }
-}
-
-</style>
+    </style>
 
 </head>
 
@@ -1047,264 +855,6 @@
 
 
 
-
-        <!-- =================================================
-             TAKE APPOINTMENT
-        ================================================== -->
-
-        <div class="take-appointment-card mb-4">
-
-            <div class="mb-4">
-                <div class="take-appointment-title">
-                    <i class="bi bi-calendar-plus me-2"></i>
-                    Take Appointment
-                </div>
-
-                <div class="take-appointment-subtitle mt-1">
-                    Search the patient by contact number or name before creating an appointment
-                </div>
-            </div>
-
-            <!-- SEARCH PATIENT -->
-
-            <div class="patient-search-box">
-
-                <label class="form-label">
-                    Search Patient
-                </label>
-
-                <div class="d-flex gap-2 patient-search-actions">
-
-                    <div class="input-group flex-grow-1">
-
-                        <span class="input-group-text">
-                            <i class="bi bi-search"></i>
-                        </span>
-
-                        <input
-                            type="text"
-                            id="takeAppointmentSearch"
-                            class="form-control"
-                            placeholder="Enter contact number or patient name">
-
-                    </div>
-
-                    <button
-                        type="button"
-                        class="btn-search-patient"
-                        id="searchPatientBtn">
-
-                        <i class="bi bi-search me-1"></i>
-                        Search
-
-                    </button>
-
-                </div>
-
-                <small class="text-muted">
-                    Example: 9876543210 or Anitha
-                </small>
-
-            </div>
-
-
-            <!-- PATIENT FOUND -->
-
-            <div
-                id="patientFoundCard"
-                class="patient-result-card patient-found mt-4"
-                style="display:none;">
-
-                <div class="d-flex
-                            justify-content-between
-                            align-items-start
-                            flex-wrap
-                            gap-3">
-
-                    <div class="d-flex align-items-center gap-3">
-
-                        <img
-                            src="https://i.pravatar.cc/100?img=47"
-                            class="patient-avatar"
-                            alt="Patient">
-
-                        <div>
-
-                            <div class="patient-name">
-                                Anitha R
-                            </div>
-
-                            <div class="patient-meta mt-1">
-                                <i class="bi bi-telephone me-1"></i>
-                                9876543210
-                            </div>
-
-                            <div class="patient-meta mt-1">
-                                <i class="bi bi-envelope me-1"></i>
-                                anitha.r@email.com
-                            </div>
-
-                            <div class="patient-meta mt-1">
-                                Female, 28 Years
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="last-appointment-box flex-grow-1">
-
-                        <div class="last-appointment-title mb-2">
-                            <i class="bi bi-clock-history me-1"></i>
-                            Last Appointment Details
-                        </div>
-
-                        <div class="row g-2">
-
-                            <div class="col-md-4">
-                                <div class="last-appointment-item">
-                                    <strong>Date:</strong><br>
-                                    17-08-2026
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="last-appointment-item">
-                                    <strong>Time:</strong><br>
-                                    10:00 AM
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="last-appointment-item">
-                                    <strong>Doctor:</strong><br>
-                                    Dr. Pooja
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="last-appointment-item">
-                                    <strong>Reason:</strong><br>
-                                    Fever
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="last-appointment-item">
-                                    <strong>Type:</strong><br>
-                                    General
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="last-appointment-item">
-                                    <strong>Status:</strong><br>
-                                    Completed
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="d-flex justify-content-end mt-3">
-
-                    <button
-                        type="button"
-                        class="btn-take-appointment"
-                        onclick="goToAppointmentPage('existing')">
-
-                        <i class="bi bi-calendar-check me-1"></i>
-                        Add Appointment
-
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <!-- PATIENT NOT FOUND -->
-
-            <div
-                id="patientNotFoundCard"
-                class="patient-result-card patient-not-found mt-4"
-                style="display:none;">
-
-                <div class="d-flex
-                            justify-content-between
-                            align-items-center
-                            flex-wrap
-                            gap-3">
-
-                    <div class="d-flex align-items-center gap-3">
-
-                        <div class="patient-avatar
-                                    d-flex
-                                    align-items-center
-                                    justify-content-center
-                                    bg-light">
-
-                            <i class="bi bi-person-x fs-3 text-danger"></i>
-
-                        </div>
-
-                        <div>
-
-                            <div class="patient-name">
-                                Patient Not Found
-                            </div>
-
-                            <div class="patient-meta mt-1">
-                                No patient was found with the provided
-                                contact number or name.
-                            </div>
-
-                            <div class="patient-meta mt-1">
-                                Add this patient as their first appointment.
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="d-flex gap-2">
-
-                        <button
-                            type="button"
-                            class="btn-first-appointment"
-                            onclick="goToAppointmentPage('new')">
-
-                            <i class="bi bi-person-plus me-1"></i>
-                           <a href="add-my-first-appointment.html">
-    Add My 1st Appointment
-</a>
-
-                        </button>
-
-                        <button
-                            type="button"
-                            class="btn btn-outline-secondary btn-cancel-search"
-                            onclick="clearPatientSearch()">
-
-                            Cancel
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
         <!-- =================================
              APPOINTMENT MANAGEMENT
         ================================== -->
@@ -1335,7 +885,7 @@
                 </div>
 
 
-             <!--    <button
+                <button
                     type="button"
                     class="btn btn-add"
                     data-bs-toggle="modal"
@@ -1345,7 +895,7 @@
 
                     Add Appointment
 
-                </button> -->
+                </button>
 
 
             </div>
@@ -1832,357 +1382,604 @@
 
 
 
-    
+        <!-- =================================
+             DOCTOR SCHEDULE
+        ================================== -->
+
+        <div class="section-card">
+
+
+            <div class="d-flex
+                        justify-content-between
+                        align-items-center
+                        flex-wrap
+                        gap-2
+                        mb-4">
+
+
+                <div>
+
+                    <div class="section-title">
+                        Doctor Schedule
+                    </div>
+
+                    <small class="text-muted">
+                        Today's available appointment slots
+                    </small>
+
+                </div>
+
+
+                <div>
+
+                    <input
+                        type="date"
+                        class="form-control">
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="row">
+
+
+                <!-- TIME SLOT 1 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="schedule-card">
+
+                        <div class="d-flex
+                                    justify-content-between
+                                    align-items-center">
+
+                            <div>
+
+                                <div class="time-slot">
+                                    09:00 AM - 09:30 AM
+                                </div>
+
+                                <small class="text-muted">
+                                    Morning Session
+                                </small>
+
+                            </div>
+
+                            <span class="slot-status available">
+                                Available
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TIME SLOT 2 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="schedule-card">
+
+                        <div class="d-flex
+                                    justify-content-between
+                                    align-items-center">
+
+                            <div>
+
+                                <div class="time-slot">
+                                    09:30 AM - 10:00 AM
+                                </div>
+
+                                <small class="text-muted">
+                                    Morning Session
+                                </small>
+
+                            </div>
+
+                            <span class="slot-status booked">
+                                Booked
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TIME SLOT 3 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="schedule-card">
+
+                        <div class="d-flex
+                                    justify-content-between
+                                    align-items-center">
+
+                            <div>
+
+                                <div class="time-slot">
+                                    10:00 AM - 10:30 AM
+                                </div>
+
+                                <small class="text-muted">
+                                    Morning Session
+                                </small>
+
+                            </div>
+
+                            <span class="slot-status available">
+                                Available
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TIME SLOT 4 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="schedule-card">
+
+                        <div class="d-flex
+                                    justify-content-between
+                                    align-items-center">
+
+                            <div>
+
+                                <div class="time-slot">
+                                    10:30 AM - 11:00 AM
+                                </div>
+
+                                <small class="text-muted">
+                                    Morning Session
+                                </small>
+
+                            </div>
+
+                            <span class="slot-status booked">
+                                Booked
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TIME SLOT 5 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="schedule-card">
+
+                        <div class="d-flex
+                                    justify-content-between
+                                    align-items-center">
+
+                            <div>
+
+                                <div class="time-slot">
+                                    11:00 AM - 11:30 AM
+                                </div>
+
+                                <small class="text-muted">
+                                    Morning Session
+                                </small>
+
+                            </div>
+
+                            <span class="slot-status available">
+                                Available
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TIME SLOT 6 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="schedule-card">
+
+                        <div class="d-flex
+                                    justify-content-between
+                                    align-items-center">
+
+                            <div>
+
+                                <div class="time-slot">
+                                    11:30 AM - 12:00 PM
+                                </div>
+
+                                <small class="text-muted">
+                                    Morning Session
+                                </small>
+
+                            </div>
+
+                            <span class="slot-status booked">
+                                Booked
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TIME SLOT 7 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="schedule-card">
+
+                        <div class="d-flex
+                                    justify-content-between
+                                    align-items-center">
+
+                            <div>
+
+                                <div class="time-slot">
+                                    02:00 PM - 02:30 PM
+                                </div>
+
+                                <small class="text-muted">
+                                    Afternoon Session
+                                </small>
+
+                            </div>
+
+                            <span class="slot-status available">
+                                Available
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TIME SLOT 8 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="schedule-card">
+
+                        <div class="d-flex
+                                    justify-content-between
+                                    align-items-center">
+
+                            <div>
+
+                                <div class="time-slot">
+                                    02:30 PM - 03:00 PM
+                                </div>
+
+                                <small class="text-muted">
+                                    Afternoon Session
+                                </small>
+
+                            </div>
+
+                            <span class="slot-status available">
+                                Available
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TIME SLOT 9 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="schedule-card">
+
+                        <div class="d-flex
+                                    justify-content-between
+                                    align-items-center">
+
+                            <div>
+
+                                <div class="time-slot">
+                                    03:00 PM - 03:30 PM
+                                </div>
+
+                                <small class="text-muted">
+                                    Afternoon Session
+                                </small>
+
+                            </div>
+
+                            <span class="slot-status booked">
+                                Booked
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
     </div>
 
 </main>
 
 
 
+<!-- =========================================
+     ADD APPOINTMENT MODAL
+========================================= -->
 
-<script>
-/* =====================================================
-   TAKE APPOINTMENT - PATIENT SEARCH
-===================================================== */
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    const searchInput =
-        document.getElementById("takeAppointmentSearch");
-
-    const searchButton =
-        document.getElementById("searchPatientBtn");
-
-    const foundCard =
-        document.getElementById("patientFoundCard");
-
-    const notFoundCard =
-        document.getElementById("patientNotFoundCard");
-
-    if (!searchInput || !searchButton) {
-        return;
-    }
-
-    /*
-       Demo patient records.
-       Later these can be replaced with database/API data.
-    */
-    const patients = [
-        {
-            name: "Anitha R",
-            contact: "9876543210",
-            email: "anitha.r@email.com",
-            gender: "Female",
-            age: "28 Years",
-            photo: "https://i.pravatar.cc/100?img=47",
-            lastDate: "17-08-2026",
-            lastTime: "10:00 AM",
-            doctor: "Dr. Pooja",
-            reason: "Fever",
-            type: "General",
-            status: "Completed"
-        },
-        {
-            name: "Rahul K",
-            contact: "9988776655",
-            email: "rahul.k@email.com",
-            gender: "Male",
-            age: "35 Years",
-            photo: "https://i.pravatar.cc/100?img=12",
-            lastDate: "16-08-2026",
-            lastTime: "10:30 AM",
-            doctor: "Dr. Pooja",
-            reason: "Blood Pressure",
-            type: "Follow-up",
-            status: "Completed"
-        },
-        {
-            name: "Priya S",
-            contact: "9123456780",
-            email: "priya.s@email.com",
-            gender: "Female",
-            age: "31 Years",
-            photo: "https://i.pravatar.cc/100?img=44",
-            lastDate: "15-08-2026",
-            lastTime: "11:00 AM",
-            doctor: "Dr. Pooja",
-            reason: "Headache",
-            type: "General",
-            status: "Completed"
-        },
-        {
-            name: "Suresh M",
-            contact: "9012345678",
-            email: "suresh.m@email.com",
-            gender: "Male",
-            age: "42 Years",
-            photo: "https://i.pravatar.cc/100?img=33",
-            lastDate: "14-08-2026",
-            lastTime: "11:30 AM",
-            doctor: "Dr. Pooja",
-            reason: "Diabetes",
-            type: "Consultation",
-            status: "Completed"
-        }
-    ];
-
-
-    function normalize(value) {
-
-        return value
-            .toString()
-            .toLowerCase()
-            .replace(/\\s+/g, "")
-            .replace(/[-()]/g, "");
-
-    }
-
-
-    function searchPatient() {
-
-        const enteredValue =
-            searchInput.value.trim();
+<div
+    class="modal fade"
+    id="appointmentModal"
+    tabindex="-1"
+    aria-hidden="true">
 
-        foundCard.style.display = "none";
-        notFoundCard.style.display = "none";
 
-        if (!enteredValue) {
-            return;
-        }
+    <div
+        class="modal-dialog modal-lg
+               modal-dialog-centered">
 
 
-        const searchValue =
-            normalize(enteredValue);
+        <div class="modal-content">
 
 
-        const patient =
-            patients.find(function (item) {
+            <!-- HEADER -->
 
-                const patientName =
-                    normalize(item.name);
+            <div class="modal-header">
 
-                const patientContact =
-                    normalize(item.contact);
+                <h5 class="modal-title">
 
-                return (
-                    patientName.includes(searchValue) ||
-                    patientContact.includes(searchValue)
-                );
+                    Add Appointment
 
-            });
+                </h5>
 
 
-        if (patient) {
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal">
 
-            /* ==============================
-               DISPLAY PATIENT DETAILS
-            ============================== */
+                </button>
 
-            foundCard.querySelector(".patient-avatar").src =
-                patient.photo;
+            </div>
 
-            foundCard.querySelector(".patient-name").textContent =
-                patient.name;
 
-            const meta =
-                foundCard.querySelectorAll(".patient-meta");
 
-            if (meta.length >= 3) {
+            <!-- FORM -->
 
-                meta[0].innerHTML =
-                    '<i class="bi bi-telephone me-1"></i> ' +
-                    patient.contact;
+            <form>
 
-                meta[1].innerHTML =
-                    '<i class="bi bi-envelope me-1"></i> ' +
-                    patient.email;
 
-                meta[2].textContent =
-                    patient.gender + ", " + patient.age;
+                <div class="modal-body">
 
-            }
 
+                    <div class="row">
 
-            /* ==============================
-               LAST APPOINTMENT DETAILS
-            ============================== */
 
-            const appointmentBox =
-                foundCard.querySelector(".last-appointment-box");
+                        <!-- PATIENT NAME -->
 
-            if (appointmentBox) {
+                        <div class="col-md-6 mb-3">
 
-                const items =
-                    appointmentBox.querySelectorAll(
-                        ".last-appointment-item"
-                    );
+                            <label class="form-label">
+                                Patient Name
+                            </label>
 
-                if (items.length >= 6) {
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Enter patient name">
 
-                    items[0].innerHTML =
-                        "<strong>Date:</strong><br>" +
-                        patient.lastDate;
+                        </div>
 
-                    items[1].innerHTML =
-                        "<strong>Time:</strong><br>" +
-                        patient.lastTime;
 
-                    items[2].innerHTML =
-                        "<strong>Doctor:</strong><br>" +
-                        patient.doctor;
 
-                    items[3].innerHTML =
-                        "<strong>Reason:</strong><br>" +
-                        patient.reason;
+                        <!-- CONTACT -->
 
-                    items[4].innerHTML =
-                        "<strong>Type:</strong><br>" +
-                        patient.type;
+                        <div class="col-md-6 mb-3">
 
-                    items[5].innerHTML =
-                        "<strong>Status:</strong><br>" +
-                        patient.status;
+                            <label class="form-label">
+                                Contact
+                            </label>
 
-                }
+                            <input
+                                type="tel"
+                                class="form-control"
+                                placeholder="Enter contact number">
 
-            }
+                        </div>
 
 
-            foundCard.style.display = "block";
 
+                        <!-- DATE -->
 
-            /*
-               Store selected patient so the Add Appointment
-               page can receive the correct patient.
-            */
-            searchInput.dataset.patientName =
-                patient.name;
+                        <div class="col-md-6 mb-3">
 
-            searchInput.dataset.patientContact =
-                patient.contact;
+                            <label class="form-label">
+                                Appointment Date
+                            </label>
 
+                            <input
+                                type="date"
+                                class="form-control">
 
-        } else {
+                        </div>
 
-            /* ==============================
-               PATIENT NOT FOUND
-            ============================== */
 
-            notFoundCard.style.display = "block";
 
-        }
+                        <!-- TIME -->
 
-    }
+                        <div class="col-md-6 mb-3">
 
+                            <label class="form-label">
+                                Appointment Time
+                            </label>
 
-    /* SEARCH BUTTON */
+                            <input
+                                type="time"
+                                class="form-control">
 
-    searchButton.addEventListener(
-        "click",
-        searchPatient
-    );
+                        </div>
 
 
-    /* PRESS ENTER TO SEARCH */
 
-    searchInput.addEventListener(
-        "keydown",
-        function (event) {
+                        <!-- APPOINTMENT TYPE -->
 
-            if (event.key === "Enter") {
+                        <div class="col-md-6 mb-3">
 
-                event.preventDefault();
+                            <label class="form-label">
+                                Appointment Type
+                            </label>
 
-                searchPatient();
+                            <select class="form-select">
 
-            }
+                                <option>
+                                    Select Type
+                                </option>
 
-        }
-    );
+                                <option>
+                                    General
+                                </option>
 
+                                <option>
+                                    Consultation
+                                </option>
 
-    /* OPTIONAL: SEARCH AS USER TYPES */
+                                <option>
+                                    Follow-up
+                                </option>
 
-    searchInput.addEventListener(
-        "input",
-        function () {
+                            </select>
 
-            if (this.value.trim() === "") {
+                        </div>
 
-                foundCard.style.display = "none";
 
-                notFoundCard.style.display = "none";
 
-            }
+                        <!-- STATUS -->
 
-        }
-    );
+                        <div class="col-md-6 mb-3">
 
+                            <label class="form-label">
+                                Status
+                            </label>
 
-    /* ==============================
-       ADD APPOINTMENT
-    ============================== */
+                            <select class="form-select">
 
-    window.goToAppointmentPage =
-        function (type) {
+                                <option>
+                                    Scheduled
+                                </option>
 
-            const patientName =
-                searchInput.dataset.patientName || "";
+                                <option>
+                                    Completed
+                                </option>
 
-            const patientContact =
-                searchInput.dataset.patientContact ||
-                searchInput.value.trim();
+                                <option>
+                                    Cancelled
+                                </option>
 
+                            </select>
 
-            const params =
-                new URLSearchParams();
+                        </div>
 
-            params.set("type", type);
 
-            params.set(
-                "patientName",
-                patientName
-            );
 
-            params.set(
-                "patientContact",
-                patientContact
-            );
+                        <!-- REASON -->
 
+                        <div class="col-md-12 mb-3">
 
-            window.location.href =
-                "add-appointment.html?" +
-                params.toString();
+                            <label class="form-label">
+                                Reason for Visit
+                            </label>
 
-        };
+                            <textarea
+                                class="form-control"
+                                rows="3"
+                                placeholder="Enter reason for visit"></textarea>
 
+                        </div>
 
-    /* ==============================
-       CANCEL SEARCH
-    ============================== */
 
-    window.clearPatientSearch =
-        function () {
+                    </div>
 
-            searchInput.value = "";
+                </div>
 
-            searchInput.dataset.patientName = "";
 
-            searchInput.dataset.patientContact = "";
 
-            foundCard.style.display = "none";
+                <!-- FOOTER -->
 
-            notFoundCard.style.display = "none";
+                <div class="modal-footer">
 
-            searchInput.focus();
+                    <button
+                        type="button"
+                        class="btn btn-outline-secondary"
+                        data-bs-dismiss="modal">
 
-        };
+                        Cancel
 
-});
-</script>
+                    </button>
 
 
-<!-- Bootstrap JS -->
+                    <button
+                        type="button"
+                        class="btn btn-add">
+
+                        <i class="bi bi-check-lg"></i>
+
+                        Save Appointment
+
+                    </button>
+
+                </div>
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- Bootstrap JS is included only so the Bootstrap modal UI can open -->
 <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
 </script>
