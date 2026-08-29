@@ -342,7 +342,7 @@
 
             padding: 28px;
 
-            min-height: 315px;
+            min-height: 260px;
 
             display: flex;
 
@@ -435,48 +435,6 @@
             font-weight: 600;
 
         }
-
-
-        /* =========================
-           PATIENT PROFILE BUTTONS
-        ========================= */
-
-        .profile-actions {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-top: 12px;
-        }
-
-        .btn-view-profile {
-            background: #ffffff;
-            color: #163A5F;
-            border: 1px solid #ffffff;
-            font-weight: 600;
-            padding: 8px 14px;
-            border-radius: 6px;
-        }
-
-        .btn-view-profile:hover {
-            background: #f8f6f8;
-            color: #163A5F;
-        }
-
-        .btn-download-profile {
-            background: transparent;
-            color: #ffffff;
-            border: 1px solid #ffffff;
-            font-weight: 600;
-            padding: 8px 14px;
-            border-radius: 6px;
-        }
-
-        .btn-download-profile:hover {
-            background: rgba(255,255,255,0.12);
-            color: #ffffff;
-        }
-
 
 
 
@@ -1219,39 +1177,13 @@
 
                         <button
                             type="button"
-                            class="btn btn-serving mt-3"
-                            id="completeServingBtn">
+                            class="btn btn-serving mt-3">
 
                             <i class="bi bi-check-lg"></i>
 
                             Complete Consultation
 
                         </button>
-
-                        <!-- PATIENT PROFILE ACTIONS -->
-                        <div class="profile-actions">
-
-                            <button
-                                type="button"
-                                class="btn btn-view-profile btn-sm"
-                                onclick="viewPatientProfile()">
-
-                                <i class="bi bi-person-vcard me-1"></i>
-                                View Profile
-
-                            </button>
-
-                            <button
-                                type="button"
-                                class="btn btn-download-profile btn-sm"
-                                onclick="downloadPatientProfile()">
-
-                                <i class="bi bi-download me-1"></i>
-                                Download Profile
-
-                            </button>
-
-                        </div>
 
 
                     </div>
@@ -2649,58 +2581,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 });
-
-
-/* =========================================
-   PATIENT PROFILE ACTIONS
-========================================= */
-
-function viewPatientProfile() {
-
-    window.location.href =
-        "patient-profile.html?patient=Priya";
-
-}
-
-
-function downloadPatientProfile() {
-
-    const profileText =
-`Mysore HealthCare
-Patient Profile
-
-Patient Name: Priya
-Token: A-003
-Appointment Type: General Consultation
-Consultation Status: Completed
-`;
-
-    const blob =
-        new Blob(
-            [profileText],
-            { type: "text/plain" }
-        );
-
-    const url =
-        URL.createObjectURL(blob);
-
-    const link =
-        document.createElement("a");
-
-    link.href = url;
-    link.download = "Priya-Patient-Profile.txt";
-
-    document.body.appendChild(link);
-
-    link.click();
-
-    document.body.removeChild(link);
-
-    URL.revokeObjectURL(url);
-
-}
-
-
 
 </script>
 
