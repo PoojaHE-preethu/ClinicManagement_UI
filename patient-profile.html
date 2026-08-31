@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mysore HealthCare - Patient Profile</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    background: #f8f6f8;
+    font-family: Arial, sans-serif;
+    color: #222;
+}
+
+.top-navbar {
+    height: 70px;
+    background: #fff;
+    border-bottom: 1px solid #e5dce4;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.menu-toggle {
+    border: none;
+    background: transparent;
+    color: #163A5F;
+    font-size: 24px;
+}
+
+.navbar-title {
+    color: #163A5F;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.navbar-subtitle {
+    color: #777;
+    font-size: 12px;
+}
+
+.doctor-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.doctor-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.doctor-name {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.doctor-role {
+    color: #777;
+    font-size: 11px;
+}
+
+.sidebar {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 260px;
+    height: calc(100vh - 70px);
+    background: #163A5F;
+    overflow-y: auto;
+    z-index: 999;
+}
+
+.brand-section {
+    padding: 20px 15px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,.15);
+}
+
+.brand-icon {
+    color: #f4c95d;
+    font-size: 30px;
+}
+
+.brand-name {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.brand-subtitle {
+    color: #e7cfe0;
+    font-size: 11px;
+}
+
+.sidebar-menu {
+    padding: 15px 10px;
+}
+
+.sidebar-menu a {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 13px;
+    margin-bottom: 5px;
+    border-radius: 7px;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.sidebar-menu a:hover {
+    background: rgba(255,255,255,.12);
+}
+
+.sidebar-menu a.active {
+    background: #f4c95d;
+    color: #163A5F;
+    font-weight: 600;
+}
+
+.sidebar-menu i {
+    min-width: 20px;
+    font-size: 17px;
+}
+
+.main-content {
+    margin-left: 260px;
+    padding-top: 70px;
+    min-height: 100vh;
+}
+
+.page-container {
+    padding: 30px;
+}
+
+.back-link {
+    color: #163A5F;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.profile-card,
+.info-card {
+    background: #fff;
+    border: 1px solid #eadfe6;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.04);
+}
+
+.page-title {
+    color: #163A5F;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.page-subtitle {
+    color: #555;
+    font-size: 14px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.patient-photo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #f4c95d;
+}
+
+.patient-name {
+    color: #163A5F;
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.patient-id {
+    color: #777;
+    font-size: 12px;
+}
+
+.status-badge {
+    display: inline-block;
+    background: #dff5e7;
+    color: #198754;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.section-title {
+    color: #163A5F;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.detail-label {
+    color: #777;
+    font-size: 11px;
+    margin-bottom: 3px;
+}
+
+.detail-value {
+    color: #222;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.appointment-table th {
+    background: #163A5F;
+    color: #fff;
+    font-size: 12px;
+    padding: 11px;
+}
+
+.appointment-table td {
+    font-size: 12px;
+    padding: 11px;
+    vertical-align: middle;
+}
+
+.btn-primary-custom {
+    background: #163A5F;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    padding: 10px 18px;
+    font-size: 13px;
+}
+
+.btn-primary-custom:hover {
+    background: #64184c;
+    color: #fff;
+}
+
+@media(max-width:768px) {
+    .sidebar {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .page-container {
+        padding: 20px 15px;
+    }
+
+    .profile-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="top-navbar d-flex align-items-center px-3">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+
+        <div class="d-flex align-items-center gap-3">
+            <button class="menu-toggle">
+                <i class="bi bi-list"></i>
+            </button>
+
+            <div>
+                <div class="navbar-title">Mysore HealthCare</div>
+                <div class="navbar-subtitle">Clinic Management System</div>
+            </div>
+        </div>
+
+        <div class="doctor-profile">
+            <img src="https://i.pravatar.cc/100?img=32" alt="Doctor">
+            <div>
+                <div class="doctor-name">Dr. Pooja</div>
+                <div class="doctor-role">Doctor / Admin</div>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+<aside class="sidebar">
+
+    <div class="brand-section">
+        <div class="brand-icon">
+            <i class="bi bi-hospital"></i>
+        </div>
+        <div class="brand-name">Mysore HealthCare</div>
+        <div class="brand-subtitle">Clinic Management System</div>
+    </div>
+
+    <div class="sidebar-menu">
+
+        <a href="dashboard.html">
+            <i class="bi bi-grid-1x2-fill"></i>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="appointment-schedule-updated.html">
+            <i class="bi bi-calendar-check"></i>
+            <span>Appointments & Schedule</span>
+        </a>
+
+        <a href="patient-management.html" class="active">
+            <i class="bi bi-people"></i>
+            <span>Patient Management</span>
+        </a>
+
+        <a href="queue-management.html">
+            <i class="bi bi-list-ol"></i>
+            <span>Queue Management</span>
+        </a>
+
+        <a href="consultation-management.html">
+            <i class="bi bi-chat-square-text"></i>
+            <span>Consultation Management</span>
+        </a>
+
+        <a href="prescription-management.html">
+            <i class="bi bi-prescription2"></i>
+            <span>Prescription Management</span>
+        </a>
+
+        <a href="medicine-management.html">
+            <i class="bi bi-capsule"></i>
+            <span>Medicine Management</span>
+        </a>
+
+        <a href="follow-up-management.html">
+            <i class="bi bi-arrow-repeat"></i>
+            <span>Follow-up Management</span>
+        </a>
+
+        <a href="#">
+            <i class="bi bi-bar-chart-line"></i>
+            <span>Reports & Analytics</span>
+        </a>
+
+        <a href="receptionist-management.html">
+            <i class="bi bi-person-badge"></i>
+            <span>Receptionist Management</span>
+        </a>
+
+        <a href="doctor-profile.html">
+            <i class="bi bi-person-circle"></i>
+            <span>Doctor Profile</span>
+        </a>
+
+    </div>
+</aside>
+
+<main class="main-content">
+
+    <div class="page-container">
+
+        <div class="mb-4">
+            <a href="queue-management.html" class="back-link">
+                <i class="bi bi-arrow-left me-1"></i>
+                Back to Queue Management
+            </a>
+        </div>
+
+        <div class="profile-card mb-4">
+
+            <div class="d-flex justify-content-between align-items-start flex-wrap gap-3">
+
+                <div>
+                    <div class="page-title">Patient Profile</div>
+                    <div class="page-subtitle mt-1">
+                        View complete patient information and appointment history
+                    </div>
+                </div>
+
+                <button class="btn-primary-custom" onclick="window.print()">
+                    <i class="bi bi-printer me-1"></i>
+                    Print Profile
+                </button>
+
+            </div>
+
+            <hr>
+
+            <div class="profile-header">
+
+                <img
+                    src="https://i.pravatar.cc/100?img=47"
+                    class="patient-photo"
+                    alt="Priya">
+
+                <div>
+
+                    <div class="patient-name">Priya</div>
+
+                    <div class="patient-id mt-1">
+                        Patient ID: P-1003
+                    </div>
+
+                    <div class="mt-2">
+                        <span class="status-badge">
+                            Active Patient
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <div class="col-lg-7">
+
+                <div class="info-card h-100">
+
+                    <div class="section-title mb-4">
+                        <i class="bi bi-person-vcard me-2"></i>
+                        Personal Information
+                    </div>
+
+                    <div class="row g-4">
+
+                        <div class="col-md-6">
+                            <div class="detail-label">Patient Name</div>
+                            <div class="detail-value">Priya</div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="detail-label">Contact Number</div>
+                            <div class="detail-value">9123456780</div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="detail-label">Gender</div>
+                            <div class="detail-value">Female</div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="detail-label">Age</div>
+                            <div class="detail-value">30 Years</div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="detail-label">Email</div>
+                            <div class="detail-value">priya@email.com</div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="detail-label">Blood Group</div>
+                            <div class="detail-value">O+</div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="detail-label">Address</div>
+                            <div class="detail-value">
+                                Mysuru, Karnataka
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-5">
+
+                <div class="info-card h-100">
+
+                    <div class="section-title mb-4">
+                        <i class="bi bi-heart-pulse me-2"></i>
+                        Medical Information
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="detail-label">Allergies</div>
+                        <div class="detail-value">
+                            No known allergies
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="detail-label">Existing Conditions</div>
+                        <div class="detail-value">
+                            None reported
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="detail-label">Current Medication</div>
+                        <div class="detail-value">
+                            None reported
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="detail-label">Emergency Contact</div>
+                        <div class="detail-value">
+                            9876543210
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="info-card mt-4">
+
+            <div class="section-title mb-3">
+                <i class="bi bi-clock-history me-2"></i>
+                Appointment History
+            </div>
+
+            <div class="table-responsive">
+
+                <table class="table table-bordered appointment-table mb-0">
+
+                    <thead>
+                        <tr>
+                            <th>Sl.No</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Doctor</th>
+                            <th>Type</th>
+                            <th>Reason</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>1</td>
+                            <td>17-08-2026</td>
+                            <td>11:00 AM</td>
+                            <td>Dr. Pooja</td>
+                            <td>General</td>
+                            <td>Headache</td>
+                            <td>
+                                <span class="status-badge">
+                                    Completed
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td>05-08-2026</td>
+                            <td>10:30 AM</td>
+                            <td>Dr. Pooja</td>
+                            <td>Follow-up</td>
+                            <td>Review</td>
+                            <td>
+                                <span class="status-badge">
+                                    Completed
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+                            <td>22-07-2026</td>
+                            <td>09:30 AM</td>
+                            <td>Dr. Pooja</td>
+                            <td>General</td>
+                            <td>Fever</td>
+                            <td>
+                                <span class="status-badge">
+                                    Completed
+                                </span>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+</body>
+</html>

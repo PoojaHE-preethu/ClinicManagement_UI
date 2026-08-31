@@ -8,7 +8,7 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
 
-    <title>Mysore HealthCare - Consultation Management</title>
+    <title>Mysore HealthCare - Appointment & Schedule</title>
 
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -274,19 +274,10 @@
 
 
         /* =========================
-           SEARCH
+           APPOINTMENT TABLE
         ========================= */
 
-        .search-box {
-            width: 250px;
-        }
-
-
-        /* =========================
-           TABLE
-        ========================= */
-
-        .consultation-table th {
+        .appointment-table th {
             background: #163A5F;
             color: white;
             font-size: 13px;
@@ -294,7 +285,7 @@
         }
 
 
-        .consultation-table td {
+        .appointment-table td {
             vertical-align: middle;
             font-size: 13px;
         }
@@ -312,9 +303,9 @@
            STATUS
         ========================= */
 
-        .status-completed {
-            background: #dff5e7;
-            color: #198754;
+        .status-scheduled {
+            background: #fff3cd;
+            color: #856404;
             padding: 5px 10px;
             border-radius: 20px;
             font-size: 11px;
@@ -322,9 +313,9 @@
         }
 
 
-        .status-pending {
-            background: #fff3cd;
-            color: #856404;
+        .status-completed {
+            background: #dff5e7;
+            color: #198754;
             padding: 5px 10px;
             border-radius: 20px;
             font-size: 11px;
@@ -339,6 +330,45 @@
             border-radius: 20px;
             font-size: 11px;
             font-weight: 600;
+        }
+
+
+        /* =========================
+           SCHEDULE
+        ========================= */
+
+        .schedule-card {
+            border: 1px solid #eadfe6;
+            border-radius: 10px;
+            padding: 15px;
+            background: #ffffff;
+            margin-bottom: 12px;
+        }
+
+
+        .time-slot {
+            font-size: 15px;
+            font-weight: 600;
+            color: #163A5F;
+        }
+
+
+        .slot-status {
+            font-size: 11px;
+            padding: 5px 10px;
+            border-radius: 20px;
+        }
+
+
+        .available {
+            background: #dff5e7;
+            color: #198754;
+        }
+
+
+        .booked {
+            background: #f8d7da;
+            color: #dc3545;
         }
 
 
@@ -368,7 +398,7 @@
            MOBILE
         ========================= */
 
-        @media(max-width:768px) {
+        @media(max-width: 768px) {
 
             .sidebar {
                 display: none;
@@ -388,10 +418,6 @@
 
             .page-title {
                 font-size: 23px;
-            }
-
-            .search-box {
-                width: 100%;
             }
 
         }
@@ -483,16 +509,12 @@
     <div class="brand-section">
 
         <div class="brand-icon">
-
             <i class="bi bi-hospital"></i>
-
         </div>
-
 
         <div class="brand-name">
             Mysore HealthCare
         </div>
-
 
         <div class="brand-subtitle">
             Clinic Management System
@@ -516,7 +538,8 @@
         </a>
 
 
-        <a href="appointment-schedule.html">
+        <a href="appointment-schedule.html"
+           class="active">
 
             <i class="bi bi-calendar-check"></i>
 
@@ -538,7 +561,7 @@
         </a>
 
 
-        <a href="#">
+        <a href="queue-management.html">
 
             <i class="bi bi-list-ol"></i>
 
@@ -549,8 +572,7 @@
         </a>
 
 
-        <a href="consultation-management.html"
-           class="active">
+        <a href="consultation-management.html">
 
             <i class="bi bi-chat-square-text"></i>
 
@@ -650,9 +672,8 @@
         <div class="mb-4">
 
             <h1 class="page-title">
-                Consultation Management
+                Appointment & Schedule
             </h1>
-
 
             <nav aria-label="breadcrumb">
 
@@ -666,10 +687,9 @@
 
                     </li>
 
-
                     <li class="breadcrumb-item active">
 
-                        Consultation Management
+                        Appointment & Schedule
 
                     </li>
 
@@ -701,19 +721,18 @@
                         <div>
 
                             <div class="summary-label">
-                                Total Consultations
+                                Total Appointments
                             </div>
 
                             <div class="summary-number">
-                                32
+                                24
                             </div>
 
                         </div>
 
-
                         <div class="summary-icon">
 
-                            <i class="bi bi-chat-square-text"></i>
+                            <i class="bi bi-calendar-check"></i>
 
                         </div>
 
@@ -725,7 +744,7 @@
 
 
 
-            <!-- TODAY -->
+            <!-- SCHEDULED -->
 
             <div class="col-xl-3 col-md-6">
 
@@ -738,7 +757,7 @@
                         <div>
 
                             <div class="summary-label">
-                                Today's Consultations
+                                Scheduled
                             </div>
 
                             <div class="summary-number">
@@ -747,10 +766,9 @@
 
                         </div>
 
-
                         <div class="summary-icon">
 
-                            <i class="bi bi-calendar-day"></i>
+                            <i class="bi bi-clock"></i>
 
                         </div>
 
@@ -779,11 +797,10 @@
                             </div>
 
                             <div class="summary-number">
-                                25
+                                9
                             </div>
 
                         </div>
-
 
                         <div class="summary-icon">
 
@@ -799,7 +816,7 @@
 
 
 
-            <!-- PENDING -->
+            <!-- CANCELLED -->
 
             <div class="col-xl-3 col-md-6">
 
@@ -812,19 +829,18 @@
                         <div>
 
                             <div class="summary-label">
-                                Pending
+                                Cancelled
                             </div>
 
                             <div class="summary-number">
-                                7
+                                3
                             </div>
 
                         </div>
 
-
                         <div class="summary-icon">
 
-                            <i class="bi bi-clock"></i>
+                            <i class="bi bi-x-circle"></i>
 
                         </div>
 
@@ -840,10 +856,10 @@
 
 
         <!-- =================================
-             CONSULTATION MANAGEMENT
+             APPOINTMENT MANAGEMENT
         ================================== -->
 
-        <div class="section-card">
+        <div class="section-card mb-4">
 
 
             <!-- HEADER -->
@@ -859,26 +875,62 @@
                 <div>
 
                     <div class="section-title">
-                        Consultation Management
+                        Appointment Management
                     </div>
 
                     <small class="text-muted">
-                        Add and manage patient consultations
+                        View and manage patient appointments
                     </small>
 
                 </div>
 
 
-                <!-- SEARCH + ADD -->
+                <button
+                    type="button"
+                    class="btn btn-add"
+                    data-bs-toggle="modal"
+                    data-bs-target="#appointmentModal">
 
-                <div class="d-flex
-                            gap-2
-                            flex-wrap">
+                    <i class="bi bi-plus-lg"></i>
+
+                    Add Appointment
+
+                </button>
 
 
-                    <!-- SEARCH -->
+            </div>
 
-                    <div class="input-group search-box">
+
+
+            <!-- FILTERS -->
+
+            <div class="row g-3 mb-4">
+
+
+                <!-- DATE -->
+
+                <div class="col-lg-3 col-md-6">
+
+                    <label class="form-label">
+                        Appointment Date
+                    </label>
+
+                    <input
+                        type="date"
+                        class="form-control">
+
+                </div>
+
+
+                <!-- SEARCH -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <label class="form-label">
+                        Search Patient
+                    </label>
+
+                    <div class="input-group">
 
                         <span class="input-group-text">
 
@@ -886,50 +938,79 @@
 
                         </span>
 
-
-                       <input
-    type="text"
-    class="form-control"
-    id="consultationSearch"
-    placeholder="Search patient">
+                        <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Search patient name">
 
                     </div>
 
+                </div>
 
 
-                    <!-- ADD CONSULTATION -->
+                <!-- STATUS -->
+
+                <div class="col-lg-3 col-md-6">
+
+                    <label class="form-label">
+                        Status
+                    </label>
+
+                    <select class="form-select">
+
+                        <option>
+                            All Status
+                        </option>
+
+                        <option>
+                            Scheduled
+                        </option>
+
+                        <option>
+                            Completed
+                        </option>
+
+                        <option>
+                            Cancelled
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- RESET -->
+
+                <div class="col-lg-2 col-md-6
+                            d-flex
+                            align-items-end">
 
                     <button
                         type="button"
-                        class="btn btn-add"
-                        data-bs-toggle="modal"
-                        data-bs-target="#consultationModal">
+                        class="btn btn-outline-secondary w-100">
 
-                        <i class="bi bi-plus-lg"></i>
+                        <i class="bi bi-arrow-clockwise"></i>
 
-                        Add Consultation
+                        Reset
 
                     </button>
 
-
                 </div>
+
 
             </div>
 
 
 
-            <!-- =================================
-                 DATA TABLE
-            ================================== -->
+            <!-- TABLE -->
 
             <div class="table-responsive">
-
 
                 <table
                     class="table
                            table-bordered
                            table-hover
-                           consultation-table"  id="consultationTable">
+                           appointment-table">
 
 
                     <thead>
@@ -945,6 +1026,10 @@
                             </th>
 
                             <th>
+                                Contact
+                            </th>
+
+                            <th>
                                 Date
                             </th>
 
@@ -953,15 +1038,11 @@
                             </th>
 
                             <th>
-                                Symptoms
+                                Type
                             </th>
 
                             <th>
-                                Diagnosis
-                            </th>
-
-                            <th>
-                                Doctor Notes
+                                Reason
                             </th>
 
                             <th>
@@ -977,7 +1058,6 @@
                     </thead>
 
 
-
                     <tbody>
 
 
@@ -989,7 +1069,6 @@
                                 1
                             </td>
 
-
                             <td>
 
                                 <div class="d-flex
@@ -998,8 +1077,7 @@
 
                                     <img
                                         src="https://i.pravatar.cc/100?img=47"
-                                        class="patient-photo"
-                                        alt="Patient">
+                                        class="patient-photo">
 
                                     <span>
                                         Anitha
@@ -1009,51 +1087,35 @@
 
                             </td>
 
-
                             <td>
-                                18-08-2026
+                                9876543210
                             </td>
 
-
                             <td>
-                                09:30 AM
+                                17-08-2026
                             </td>
 
-
                             <td>
-                                Fever, Body Pain
+                                10:00 AM
                             </td>
 
-
                             <td>
-                                Viral Fever
+                                General
                             </td>
 
-
                             <td>
-                                Take rest and fluids
+                                Fever
                             </td>
 
-
                             <td>
 
-                                <span class="status-completed">
-                                    Completed
+                                <span class="status-scheduled">
+                                    Scheduled
                                 </span>
 
                             </td>
 
-
                             <td>
-
-                                <button
-                                    type="button"
-                                    class="btn btn-sm btn-outline-primary">
-
-                                    <i class="bi bi-eye"></i>
-
-                                </button>
-
 
                                 <button
                                     type="button"
@@ -1062,7 +1124,6 @@
                                     <i class="bi bi-pencil"></i>
 
                                 </button>
-
 
                                 <button
                                     type="button"
@@ -1086,7 +1147,6 @@
                                 2
                             </td>
 
-
                             <td>
 
                                 <div class="d-flex
@@ -1095,8 +1155,7 @@
 
                                     <img
                                         src="https://i.pravatar.cc/100?img=12"
-                                        class="patient-photo"
-                                        alt="Patient">
+                                        class="patient-photo">
 
                                     <span>
                                         Rahul
@@ -1106,51 +1165,35 @@
 
                             </td>
 
-
                             <td>
-                                18-08-2026
+                                9988776655
                             </td>
 
-
                             <td>
-                                10:00 AM
+                                17-08-2026
                             </td>
 
-
                             <td>
-                                Headache
+                                10:30 AM
                             </td>
 
-
                             <td>
-                                Migraine
+                                Follow-up
                             </td>
 
-
                             <td>
-                                Monitor symptoms
+                                Blood Pressure
                             </td>
 
-
                             <td>
 
-                                <span class="status-pending">
-                                    Pending
+                                <span class="status-completed">
+                                    Completed
                                 </span>
 
                             </td>
 
-
                             <td>
-
-                                <button
-                                    type="button"
-                                    class="btn btn-sm btn-outline-primary">
-
-                                    <i class="bi bi-eye"></i>
-
-                                </button>
-
 
                                 <button
                                     type="button"
@@ -1159,7 +1202,6 @@
                                     <i class="bi bi-pencil"></i>
 
                                 </button>
-
 
                                 <button
                                     type="button"
@@ -1183,7 +1225,6 @@
                                 3
                             </td>
 
-
                             <td>
 
                                 <div class="d-flex
@@ -1192,8 +1233,7 @@
 
                                     <img
                                         src="https://i.pravatar.cc/100?img=32"
-                                        class="patient-photo"
-                                        alt="Patient">
+                                        class="patient-photo">
 
                                     <span>
                                         Priya
@@ -1203,51 +1243,35 @@
 
                             </td>
 
-
                             <td>
-                                18-08-2026
+                                9123456780
                             </td>
 
-
                             <td>
-                                10:30 AM
+                                17-08-2026
                             </td>
 
-
                             <td>
-                                Stomach Pain
+                                11:00 AM
                             </td>
 
-
                             <td>
-                                Gastritis
+                                General
                             </td>
 
-
                             <td>
-                                Avoid spicy food
+                                Headache
                             </td>
 
-
                             <td>
 
-                                <span class="status-completed">
-                                    Completed
+                                <span class="status-cancelled">
+                                    Cancelled
                                 </span>
 
                             </td>
 
-
                             <td>
-
-                                <button
-                                    type="button"
-                                    class="btn btn-sm btn-outline-primary">
-
-                                    <i class="bi bi-eye"></i>
-
-                                </button>
-
 
                                 <button
                                     type="button"
@@ -1256,7 +1280,6 @@
                                     <i class="bi bi-pencil"></i>
 
                                 </button>
-
 
                                 <button
                                     type="button"
@@ -1280,7 +1303,6 @@
                                 4
                             </td>
 
-
                             <td>
 
                                 <div class="d-flex
@@ -1289,8 +1311,7 @@
 
                                     <img
                                         src="https://i.pravatar.cc/100?img=14"
-                                        class="patient-photo"
-                                        alt="Patient">
+                                        class="patient-photo">
 
                                     <span>
                                         Suresh
@@ -1300,148 +1321,35 @@
 
                             </td>
 
-
                             <td>
-                                18-08-2026
+                                9012345678
                             </td>
 
-
                             <td>
-                                11:00 AM
+                                17-08-2026
                             </td>
-
-
-                            <td>
-                                Cough, Cold
-                            </td>
-
-
-                            <td>
-                                Common Cold
-                            </td>
-
-
-                            <td>
-                                Follow medication
-                            </td>
-
-
-                            <td>
-
-                                <span class="status-pending">
-                                    Pending
-                                </span>
-
-                            </td>
-
-
-                            <td>
-
-                                <button
-                                    type="button"
-                                    class="btn btn-sm btn-outline-primary">
-
-                                    <i class="bi bi-eye"></i>
-
-                                </button>
-
-
-                                <button
-                                    type="button"
-                                    class="btn btn-sm btn-outline-dark">
-
-                                    <i class="bi bi-pencil"></i>
-
-                                </button>
-
-
-                                <button
-                                    type="button"
-                                    class="btn btn-sm btn-outline-danger">
-
-                                    <i class="bi bi-trash"></i>
-
-                                </button>
-
-                            </td>
-
-                        </tr>
-
-
-
-                        <!-- ROW 5 -->
-
-                        <tr>
-
-                            <td>
-                                5
-                            </td>
-
-
-                            <td>
-
-                                <div class="d-flex
-                                            align-items-center
-                                            gap-2">
-
-                                    <img
-                                        src="https://i.pravatar.cc/100?img=5"
-                                        class="patient-photo"
-                                        alt="Patient">
-
-                                    <span>
-                                        Kavya
-                                    </span>
-
-                                </div>
-
-                            </td>
-
-
-                            <td>
-                                18-08-2026
-                            </td>
-
 
                             <td>
                                 11:30 AM
                             </td>
 
-
                             <td>
-                                Joint Pain
+                                Consultation
                             </td>
 
-
                             <td>
-                                Arthritis
+                                Diabetes
                             </td>
 
-
-                            <td>
-                                Regular exercise advised
-                            </td>
-
-
                             <td>
 
-                                <span class="status-cancelled">
-                                    Cancelled
+                                <span class="status-scheduled">
+                                    Scheduled
                                 </span>
 
                             </td>
 
-
                             <td>
-
-                                <button
-                                    type="button"
-                                    class="btn btn-sm btn-outline-primary">
-
-                                    <i class="bi bi-eye"></i>
-
-                                </button>
-
 
                                 <button
                                     type="button"
@@ -1450,7 +1358,6 @@
                                     <i class="bi bi-pencil"></i>
 
                                 </button>
-
 
                                 <button
                                     type="button"
@@ -1471,6 +1378,360 @@
 
             </div>
 
+        </div>
+
+
+
+        <!-- =================================
+             DOCTOR SCHEDULE
+        ================================== -->
+
+        <div class="section-card">
+
+
+            <div class="d-flex
+                        justify-content-between
+                        align-items-center
+                        flex-wrap
+                        gap-2
+                        mb-4">
+
+
+                <div>
+
+                    <div class="section-title">
+                        Doctor Schedule
+                    </div>
+
+                    <small class="text-muted">
+                        Today's available appointment slots
+                    </small>
+
+                </div>
+
+
+                <div>
+
+                    <input
+                        type="date"
+                        class="form-control">
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="row">
+
+
+                <!-- TIME SLOT 1 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="schedule-card">
+
+                        <div class="d-flex
+                                    justify-content-between
+                                    align-items-center">
+
+                            <div>
+
+                                <div class="time-slot">
+                                    09:00 AM - 09:30 AM
+                                </div>
+
+                                <small class="text-muted">
+                                    Morning Session
+                                </small>
+
+                            </div>
+
+                            <span class="slot-status available">
+                                Available
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TIME SLOT 2 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="schedule-card">
+
+                        <div class="d-flex
+                                    justify-content-between
+                                    align-items-center">
+
+                            <div>
+
+                                <div class="time-slot">
+                                    09:30 AM - 10:00 AM
+                                </div>
+
+                                <small class="text-muted">
+                                    Morning Session
+                                </small>
+
+                            </div>
+
+                            <span class="slot-status booked">
+                                Booked
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TIME SLOT 3 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="schedule-card">
+
+                        <div class="d-flex
+                                    justify-content-between
+                                    align-items-center">
+
+                            <div>
+
+                                <div class="time-slot">
+                                    10:00 AM - 10:30 AM
+                                </div>
+
+                                <small class="text-muted">
+                                    Morning Session
+                                </small>
+
+                            </div>
+
+                            <span class="slot-status available">
+                                Available
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TIME SLOT 4 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="schedule-card">
+
+                        <div class="d-flex
+                                    justify-content-between
+                                    align-items-center">
+
+                            <div>
+
+                                <div class="time-slot">
+                                    10:30 AM - 11:00 AM
+                                </div>
+
+                                <small class="text-muted">
+                                    Morning Session
+                                </small>
+
+                            </div>
+
+                            <span class="slot-status booked">
+                                Booked
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TIME SLOT 5 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="schedule-card">
+
+                        <div class="d-flex
+                                    justify-content-between
+                                    align-items-center">
+
+                            <div>
+
+                                <div class="time-slot">
+                                    11:00 AM - 11:30 AM
+                                </div>
+
+                                <small class="text-muted">
+                                    Morning Session
+                                </small>
+
+                            </div>
+
+                            <span class="slot-status available">
+                                Available
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TIME SLOT 6 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="schedule-card">
+
+                        <div class="d-flex
+                                    justify-content-between
+                                    align-items-center">
+
+                            <div>
+
+                                <div class="time-slot">
+                                    11:30 AM - 12:00 PM
+                                </div>
+
+                                <small class="text-muted">
+                                    Morning Session
+                                </small>
+
+                            </div>
+
+                            <span class="slot-status booked">
+                                Booked
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TIME SLOT 7 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="schedule-card">
+
+                        <div class="d-flex
+                                    justify-content-between
+                                    align-items-center">
+
+                            <div>
+
+                                <div class="time-slot">
+                                    02:00 PM - 02:30 PM
+                                </div>
+
+                                <small class="text-muted">
+                                    Afternoon Session
+                                </small>
+
+                            </div>
+
+                            <span class="slot-status available">
+                                Available
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TIME SLOT 8 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="schedule-card">
+
+                        <div class="d-flex
+                                    justify-content-between
+                                    align-items-center">
+
+                            <div>
+
+                                <div class="time-slot">
+                                    02:30 PM - 03:00 PM
+                                </div>
+
+                                <small class="text-muted">
+                                    Afternoon Session
+                                </small>
+
+                            </div>
+
+                            <span class="slot-status available">
+                                Available
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TIME SLOT 9 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="schedule-card">
+
+                        <div class="d-flex
+                                    justify-content-between
+                                    align-items-center">
+
+                            <div>
+
+                                <div class="time-slot">
+                                    03:00 PM - 03:30 PM
+                                </div>
+
+                                <small class="text-muted">
+                                    Afternoon Session
+                                </small>
+
+                            </div>
+
+                            <span class="slot-status booked">
+                                Booked
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
 
         </div>
 
@@ -1482,12 +1743,12 @@
 
 
 <!-- =========================================
-     ADD CONSULTATION MODAL
+     ADD APPOINTMENT MODAL
 ========================================= -->
 
 <div
     class="modal fade"
-    id="consultationModal"
+    id="appointmentModal"
     tabindex="-1"
     aria-hidden="true">
 
@@ -1500,13 +1761,13 @@
         <div class="modal-content">
 
 
-            <!-- MODAL HEADER -->
+            <!-- HEADER -->
 
             <div class="modal-header">
 
                 <h5 class="modal-title">
 
-                    Add Consultation
+                    Add Appointment
 
                 </h5>
 
@@ -1533,7 +1794,7 @@
                     <div class="row">
 
 
-                        <!-- PATIENT -->
+                        <!-- PATIENT NAME -->
 
                         <div class="col-md-6 mb-3">
 
@@ -1550,12 +1811,29 @@
 
 
 
-                        <!-- DATE -->
+                        <!-- CONTACT -->
 
-                        <div class="col-md-3 mb-3">
+                        <div class="col-md-6 mb-3">
 
                             <label class="form-label">
-                                Date
+                                Contact
+                            </label>
+
+                            <input
+                                type="tel"
+                                class="form-control"
+                                placeholder="Enter contact number">
+
+                        </div>
+
+
+
+                        <!-- DATE -->
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">
+                                Appointment Date
                             </label>
 
                             <input
@@ -1568,10 +1846,10 @@
 
                         <!-- TIME -->
 
-                        <div class="col-md-3 mb-3">
+                        <div class="col-md-6 mb-3">
 
                             <label class="form-label">
-                                Time
+                                Appointment Time
                             </label>
 
                             <input
@@ -1582,103 +1860,33 @@
 
 
 
-                        <!-- SYMPTOMS -->
+                        <!-- APPOINTMENT TYPE -->
 
-                        <div class="col-md-12 mb-3">
-
-                            <label class="form-label">
-                                Symptoms
-                            </label>
-
-                            <textarea
-                                class="form-control"
-                                rows="3"
-                                placeholder="Enter patient symptoms"></textarea>
-
-                        </div>
-
-
-
-                        <!-- DIAGNOSIS -->
-
-                        <div class="col-md-12 mb-3">
+                        <div class="col-md-6 mb-3">
 
                             <label class="form-label">
-                                Diagnosis
+                                Appointment Type
                             </label>
 
-                            <textarea
-                                class="form-control"
-                                rows="2"
-                                placeholder="Enter diagnosis"></textarea>
+                            <select class="form-select">
 
-                        </div>
+                                <option>
+                                    Select Type
+                                </option>
 
+                                <option>
+                                    General
+                                </option>
 
+                                <option>
+                                    Consultation
+                                </option>
 
-                        <!-- BLOOD PRESSURE -->
+                                <option>
+                                    Follow-up
+                                </option>
 
-                        <div class="col-md-4 mb-3">
-
-                            <label class="form-label">
-                                Blood Pressure
-                            </label>
-
-                            <input
-                                type="text"
-                                class="form-control"
-                                placeholder="e.g. 120/80">
-
-                        </div>
-
-
-
-                        <!-- TEMPERATURE -->
-
-                        <div class="col-md-4 mb-3">
-
-                            <label class="form-label">
-                                Temperature
-                            </label>
-
-                            <input
-                                type="text"
-                                class="form-control"
-                                placeholder="e.g. 98.6 °F">
-
-                        </div>
-
-
-
-                        <!-- WEIGHT -->
-
-                        <div class="col-md-4 mb-3">
-
-                            <label class="form-label">
-                                Weight
-                            </label>
-
-                            <input
-                                type="text"
-                                class="form-control"
-                                placeholder="e.g. 65 kg">
-
-                        </div>
-
-
-
-                        <!-- DOCTOR NOTES -->
-
-                        <div class="col-md-12 mb-3">
-
-                            <label class="form-label">
-                                Doctor Notes
-                            </label>
-
-                            <textarea
-                                class="form-control"
-                                rows="3"
-                                placeholder="Enter doctor notes"></textarea>
+                            </select>
 
                         </div>
 
@@ -1695,7 +1903,7 @@
                             <select class="form-select">
 
                                 <option>
-                                    Pending
+                                    Scheduled
                                 </option>
 
                                 <option>
@@ -1711,13 +1919,30 @@
                         </div>
 
 
+
+                        <!-- REASON -->
+
+                        <div class="col-md-12 mb-3">
+
+                            <label class="form-label">
+                                Reason for Visit
+                            </label>
+
+                            <textarea
+                                class="form-control"
+                                rows="3"
+                                placeholder="Enter reason for visit"></textarea>
+
+                        </div>
+
+
                     </div>
 
                 </div>
 
 
 
-                <!-- MODAL FOOTER -->
+                <!-- FOOTER -->
 
                 <div class="modal-footer">
 
@@ -1737,7 +1962,7 @@
 
                         <i class="bi bi-check-lg"></i>
 
-                        Save Consultation
+                        Save Appointment
 
                     </button>
 
@@ -1754,38 +1979,9 @@
 
 
 
-<!-- Bootstrap JS
-     Required only for Bootstrap Modal UI -->
-
+<!-- Bootstrap JS is included only so the Bootstrap modal UI can open -->
 <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-</script>
-<script>
-
-document.getElementById("consultationSearch").addEventListener("keyup", function () {
-
-    let searchValue = this.value.toLowerCase();
-
-    let rows = document.querySelectorAll("#consultationTable tbody tr");
-
-    rows.forEach(function (row) {
-
-        let rowText = row.innerText.toLowerCase();
-
-        if (rowText.includes(searchValue)) {
-
-            row.style.display = "";
-
-        } else {
-
-            row.style.display = "none";
-
-        }
-
-    });
-
-});
-
 </script>
 
 </body>
